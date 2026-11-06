@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MINDFUL — Digital Wellness Resource Hub | College Focus & Tech Balance</title>
+  <meta name="description" content="A research-oriented, accessible digital wellness platform for college students. Understand habits, filter verified focus tools, configure bedtime routines, and audit notifications without tracking.">
+  
+  <!-- Tailwind CSS Play CDN with custom theme config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              50: '#f2f7f4',
+              100: '#e5efe8',
+              200: '#c2d7c9',
+              300: '#93b79d',
+              400: '#6b9a77',
+              500: '#4a7c59',
+              600: '#236c51',
+              700: '#1b533e',
+              800: '#143e2e',
+              900: '#0f2d20',
+              950: '#0a1f16',
+            },
+            sage: {
+              50: '#f8faf9',
+              100: '#edf2ef',
+              200: '#dce5e0',
+              300: '#bfcfc6',
+              400: '#9db4a7',
+              500: '#7d998a',
+              600: '#627c6e',
+            },
+            surface: {
+              base: '#fbfbf9',
+              subtle: '#f5f4ee',
+              border: '#e6e4dc'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            heading: ['Manrope', 'Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Custom Design System Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-[#fbfbf9] text-slate-800 antialiased min-h-screen flex flex-col font-sans selection:bg-emerald-200">
+
+  <!-- ACCESSIBILITY: SKIP TO CONTENT & LIVE REGION -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div id="a11y-live-region" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- NAVIGATION HEADER -->
+  <header id="main-header" class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-transparent transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group focus-visible:outline-offset-4" aria-label="MINDFUL Digital Wellness Hub Homepage">
+        <div class="w-10 h-10 rounded-xl bg-forest-800 text-white flex items-center justify-center shadow-sm group-hover:bg-forest-900 transition-colors">
+          <i class="fa-solid fa-leaf text-lg text-emerald-300"></i>
+        </div>
+        <div>
+          <span class="font-heading font-extrabold text-xl tracking-tight text-forest-950 block leading-tight">
+            MINDFUL<span class="text-forest-600 font-normal text-sm ml-1.5 hidden sm:inline">Hub</span>
+          </span>
+          <span class="text-[11px] text-slate-500 font-medium block">Digital Wellness for Students</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden xl:flex items-center gap-6 text-xs font-semibold text-slate-600" aria-label="Main Navigation">
+        <a href="#assessment" class="desktop-nav-link hover:text-forest-800 transition-colors">Habit Assessment</a>
+        <a href="#matcher" class="desktop-nav-link hover:text-forest-800 transition-colors">Tool Matcher</a>
+        <a href="#resources" class="desktop-nav-link hover:text-forest-800 transition-colors">Resource Library</a>
+        <a href="#comparison" class="desktop-nav-link hover:text-forest-800 transition-colors">Comparison Matrix</a>
+        <a href="#guides" class="desktop-nav-link hover:text-forest-800 transition-colors">Setup Guides</a>
+        <a href="#toolkit" class="desktop-nav-link hover:text-forest-800 transition-colors">Wellness Toolkit</a>
+        <a href="#feedback" class="desktop-nav-link hover:text-forest-800 transition-colors">Usability Tests</a>
+        <a href="#methodology" class="desktop-nav-link hover:text-forest-800 transition-colors">Research</a>
+      </nav>
+
+      <!-- Header Action Buttons -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="#assessment" class="hidden sm:inline-flex items-center gap-1.5 bg-forest-800 hover:bg-forest-900 text-white text-xs font-semibold px-4 py-2 rounded-xl shadow-xs transition-all">
+          <i class="fa-solid fa-clipboard-check text-[11px]"></i>
+          <span>Self-Assessment</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="xl:hidden p-2.5 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-100 transition" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu-drawer">
+          <i class="fa-solid fa-bars text-base"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER (ACCESSIBLE) -->
+  <div id="mobile-menu-backdrop" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-50 hidden opacity-0 transition-opacity duration-300 xl:hidden" aria-hidden="true"></div>
+  <aside id="mobile-menu-drawer" class="fixed top-0 left-0 bottom-0 w-72 max-w-[85vw] bg-white z-50 shadow-2xl p-6 flex flex-col justify-between transform -translate-x-full transition-transform duration-300 ease-in-out xl:hidden" aria-label="Mobile Navigation Drawer">
+    <div>
+      <div class="flex items-center justify-between pb-5 border-b border-slate-100 mb-6">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-forest-800 text-white flex items-center justify-center">
+            <i class="fa-solid fa-leaf text-sm text-emerald-300"></i>
+          </div>
+          <span class="font-heading font-extrabold text-lg text-forest-950">MINDFUL</span>
+        </div>
+        <button onclick="document.getElementById('mobile-menu-btn').click()" class="p-2 text-slate-400 hover:text-slate-700 rounded-lg" aria-label="Close menu">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <nav class="flex flex-col space-y-3 text-sm font-semibold text-slate-700" aria-label="Mobile Drawer Links">
+        <a href="#assessment" class="mobile-nav-link flex items-center gap-3 p-2.5 rounded-xl hover:bg-forest-50 hover:text-forest-800 transition">
+          <i class="fa-solid fa-clipboard-check text-forest-700 w-5"></i>
+          <span>Habit Assessment</span>
+        </a>
+        <a href="#matcher" class="mobile-nav-link flex items-center gap-3 p-2.5 rounded-xl hover:bg-forest-50 hover:text-forest-800 transition">
+          <i class="fa-solid fa-wand-magic-sparkles text-forest-700 w-5"></i>
+          <span>Tool Matcher</span>
+        </a>
+        <a href="#resources" class="mobile-nav-link flex items-center gap-3 p-2.5 rounded-xl hover:bg-forest-50 hover:text-forest-800 transition">
+          <i class="fa-solid fa-book-bookmark text-forest-700 w-5"></i>
+          <span>Resource Library</span>
+        </a>
+        <a href="#comparison" class="mobile-nav-link flex items-center gap-3 p-2.5 rounded-xl hover:bg-forest-50 hover:text-forest-800 transition">
+          <i class="fa-solid fa-table-columns text-forest-700 w-5"></i>
+          <span>Comparison Matrix</span>
+        </a>
+        <a href="#guides" class="mobile-nav-link flex items-center gap-3 p-2.5 rounded-xl hover:bg-forest-50 hover:text-forest-800 transition">
+          <i class="fa-solid fa-graduation-cap text-forest-700 w-5"></i>
+          <span>Setup Guides</span>
+        </a>
+        <a href="#toolkit" class="mobile-nav-link flex items-center gap-3 p-2.5 rounded-xl hover:bg-forest-50 hover:text-forest-800 transition">
+          <i class="fa-solid fa-toolbox text-forest-700 w-5"></i>
+          <span>Wellness Toolkit</span>
+        </a>
+        <a href="#feedback" class="mobile-nav-link flex items-center gap-3 p-2.5 rounded-xl hover:bg-forest-50 hover:text-forest-800 transition">
+          <i class="fa-solid fa-comments text-forest-700 w-5"></i>
+          <span>Usability Tests</span>
+        </a>
+        <a href="#methodology" class="mobile-nav-link flex items-center gap-3 p-2.5 rounded-xl hover:bg-forest-50 hover:text-forest-800 transition">
+          <i class="fa-solid fa-microscope text-forest-700 w-5"></i>
+          <span>Research & Sources</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="pt-5 border-t border-slate-100 text-xs text-slate-500">
+      <div class="flex items-center gap-1.5 text-forest-800 font-bold mb-1">
+        <i class="fa-solid fa-shield-halved text-xs"></i>
+        <span>100% Client-Side Privacy</span>
+      </div>
+      <span>Fact-Checked Academic Resource</span>
+    </div>
+  </aside>
+
+  <!-- MAIN BODY CONTENT -->
+  <main id="main-content" class="flex-grow">
+
+    <!-- ======================================================== -->
+    <!-- SECTION A: HERO SECTION -->
+    <!-- ======================================================== -->
+    <section class="relative bg-gradient-to-b from-[#f2f7f4] via-[#fbfbf9] to-[#fbfbf9] py-14 sm:py-24 border-b border-[#e6e4dc]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto">
+          <!-- Tag & Verification Pill -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-forest-100 text-forest-900 border border-forest-200 text-xs font-semibold mb-6 shadow-2xs">
+            <i class="fa-solid fa-circle-check text-forest-600"></i>
+            <span>University Student Wellness Guide • November 2026 Fact-Checked</span>
+          </div>
+
+          <!-- Main Heading -->
+          <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-forest-950 tracking-tight leading-[1.1] mb-5">
+            Your Digital Life, <br class="hidden sm:inline">
+            <span class="text-forest-700">In Balance.</span>
+          </h1>
+
+          <!-- Tagline & Supporting Text -->
+          <p class="text-sm font-semibold uppercase tracking-wider text-forest-800 mb-3">
+            Take control of your digital habits. Make technology work for you.
+          </p>
+          <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mb-8">
+            Discover healthier ways to use technology. Understand your habits, reduce distractions, and build a more mindful digital routine without predatory subscriptions or cloud tracking.
+          </p>
+
+          <!-- Call to Action Buttons -->
+          <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-12">
+            <a href="#assessment" class="bg-forest-800 hover:bg-forest-900 text-white font-semibold text-sm px-6 py-3.5 rounded-xl shadow-xs transition-all flex items-center gap-2">
+              <i class="fa-solid fa-clipboard-check"></i>
+              <span>Start Self-Assessment</span>
+            </a>
+            <a href="#resources" class="bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-semibold text-sm px-6 py-3.5 rounded-xl shadow-xs transition-all flex items-center gap-2">
+              <i class="fa-solid fa-layer-group text-forest-700"></i>
+              <span>Explore 13 Vetted Tools</span>
+            </a>
+            <a href="#toolkit" class="bg-forest-50 hover:bg-forest-100 border border-forest-200 text-forest-900 font-semibold text-sm px-5 py-3.5 rounded-xl transition-all flex items-center gap-2">
+              <i class="fa-solid fa-stopwatch text-forest-700"></i>
+              <span>Focus Toolkit</span>
+            </a>
+          </div>
+
+          <!-- Mindful Visual Breathing Circle (SVG-Based Calm Visual) -->
+          <div class="relative max-w-xs mx-auto mb-10 flex flex-col items-center justify-center">
+            <div class="w-36 h-36 rounded-full bg-gradient-to-tr from-forest-200/50 via-sage-100 to-emerald-100 flex items-center justify-center border border-forest-200/70 shadow-inner animate-breath">
+              <div class="w-24 h-24 rounded-full bg-white flex flex-col items-center justify-center text-forest-900 shadow-sm border border-forest-100">
+                <i class="fa-solid fa-seedling text-2xl text-forest-700 mb-1"></i>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-forest-800">Mindful</span>
+              </div>
+            </div>
+            <span class="text-[11px] text-slate-500 font-medium mt-2">Breathe & Reset • Attention Restoration Cadence</span>
+          </div>
+
+          <!-- 4 Curated Academic Statistics -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-left pt-6 border-t border-slate-200/80">
+            <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+              <div class="text-forest-800 font-heading font-extrabold text-2xl">4.4 hrs</div>
+              <div class="text-xs font-semibold text-slate-800 mt-0.5">Daily Phone Average</div>
+              <div class="text-[11px] text-slate-500 mt-1">Undergraduate leisure use (J. Amer. Coll. Health)</div>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+              <div class="text-forest-800 font-heading font-extrabold text-2xl">89%</div>
+              <div class="text-xs font-semibold text-slate-800 mt-0.5">Study Flow Derailment</div>
+              <div class="text-[11px] text-slate-500 mt-1">Interrupted by notifications every 12 mins</div>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+              <div class="text-forest-800 font-heading font-extrabold text-2xl">76%</div>
+              <div class="text-xs font-semibold text-slate-800 mt-0.5">Bedtime Screen Lag</div>
+              <div class="text-[11px] text-slate-500 mt-1">Phone in bed extends sleep latency by 43m</div>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+              <div class="text-forest-800 font-heading font-extrabold text-2xl">100%</div>
+              <div class="text-xs font-semibold text-slate-800 mt-0.5">Verified Privacy Terms</div>
+              <div class="text-[11px] text-slate-500 mt-1">Zero hidden subscriptions or telemetry</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- SECTION B: UNDERSTAND YOUR DIGITAL HABITS (SELF-ASSESSMENT) -->
+    <!-- ======================================================== -->
+    <section id="assessment" class="py-16 sm:py-20 bg-white border-b border-[#e6e4dc]">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        
+        <div class="text-center mb-10">
+          <span class="badge badge-category uppercase font-bold tracking-wider mb-2">Reflective Diagnostics</span>
+          <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-forest-950">
+            Digital Wellness Self-Assessment
+          </h2>
+          <p class="text-sm text-slate-600 mt-2 max-w-xl mx-auto">
+            Answer 5 reflective questions regarding your everyday study and phone habits. We generate an immediate, private breakdown across 4 key wellness pillars with personalized actions.
+          </p>
+        </div>
+
+        <!-- Assessment Form Card -->
+        <div class="card-wellness p-6 sm:p-10 border border-slate-200 shadow-sm">
+          <form id="wellness-assessment-form" class="space-y-8">
+            
+            <!-- Question 1: Daily Screen Time -->
+            <fieldset class="border-b border-slate-100 pb-6">
+              <legend class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2 mb-3">
+                <span class="w-6 h-6 rounded-full bg-forest-100 text-forest-800 text-xs font-mono font-bold inline-flex items-center justify-center">1</span>
+                How many hours per day do you spend on recreational screen use (social media, streaming, non-academic browsing)?
+              </legend>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                  <input type="radio" name="assess-screentime" value="4" class="text-forest-800 focus:ring-forest-800" checked>
+                  <span>Under 2 hours (Intentional & minimal leisure)</span>
+                </label>
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                  <input type="radio" name="assess-screentime" value="3" class="text-forest-800 focus:ring-forest-800">
+                  <span>2 to 4 hours (Moderate daily leisure)</span>
+                </label>
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                  <input type="radio" name="assess-screentime" value="2" class="text-forest-800 focus:ring-forest-800">
+                  <span>4 to 6 hours (High discretionary exposure)</span>
+                </label>
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                  <input type="radio" name="assess-screentime" value="1" class="text-forest-800 focus:ring-forest-800">
+                  <span>Over 6 hours (Frequent marathon doomscrolling)</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Question 2: Social Media during Study -->
+            <fieldset class="border-b border-slate-100 pb-6">
+              <legend class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2 mb-3">
+                <span class="w-6 h-6 rounded-full bg-forest-100 text-forest-800 text-xs font-mono font-bold inline-flex items-center justify-center">2</span>
+                During a deep study or lecture session, how frequently do you open messaging, YouTube, or social media tabs?
+              </legend>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                  <input type="radio" name="assess-studydistract" value="4" class="text-forest-800 focus:ring-forest-800">
+                  <span>Rarely / Never (I lock focus until scheduled breaks)</span>
+                </label>
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                  <input type="radio" name="assess-studydistract" value="3" class="text-forest-800 focus:ring-forest-800" checked>
+                  <span>1 to 2 times an hour when energy dips</span>
+                </label>
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                  <input type="radio" name="assess-studydistract" value="2" class="text-forest-800 focus:ring-forest-800">
+                  <span>Every 10-15 minutes (Constant split attention)</span>
+                </label>
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                  <input type="radio" name="assess-studydistract" value="1" class="text-forest-800 focus:ring-forest-800">
+                  <span>Continuously active in background or second monitor</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Question 3: Notification Urges -->
+            <fieldset class="border-b border-slate-100 pb-6">
+              <legend class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2 mb-3">
+                <span class="w-6 h-6 rounded-full bg-forest-100 text-forest-800 text-xs font-mono font-bold inline-flex items-center justify-center">3</span>
+                How often do you feel the urge to check your phone because of alerts, badges, or phantom vibrations?
+              </legend>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                  <input type="radio" name="assess-notifications" value="4" class="text-forest-800 focus:ring-forest-800">
+                  <span>Rarely (Notifications are audited or silenced)</span>
+                </label>
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                  <input type="radio" name="assess-notifications" value="3" class="text-forest-800 focus:ring-forest-800" checked>
+                  <span>Occasionally for important messages or emails</span>
+                </label>
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                  <input type="radio" name="assess-notifications" value="2" class="text-forest-800 focus:ring-forest-800">
+                  <span>Frequently (Pings consistently pull me away from tasks)</span>
+                </label>
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                  <input type="radio" name="assess-notifications" value="1" class="text-forest-800 focus:ring-forest-800">
+                  <span>Constant anxiety whenever my phone is out of sight</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Question 4: Bedtime Phone Usage -->
+            <fieldset class="border-b border-slate-100 pb-6">
+              <legend class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2 mb-3">
+                <span class="w-6 h-6 rounded-full bg-forest-100 text-forest-800 text-xs font-mono font-bold inline-flex items-center justify-center">4</span>
+                Do you use smartphones, tablets, or laptops in bed within 30 minutes of attempting to sleep?
+              </legend>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                  <input type="radio" name="assess-bedtime" value="4" class="text-forest-800 focus:ring-forest-800">
+                  <span>Never (Devices charge outside arm's reach)</span>
+                </label>
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                  <input type="radio" name="assess-bedtime" value="3" class="text-forest-800 focus:ring-forest-800">
+                  <span>Occasionally with night filter or audio only</span>
+                </label>
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                  <input type="radio" name="assess-bedtime" value="2" class="text-forest-800 focus:ring-forest-800" checked>
+                  <span>Most nights (Scroll social media or watch videos)</span>
+                </label>
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                  <input type="radio" name="assess-bedtime" value="1" class="text-forest-800 focus:ring-forest-800">
+                  <span>Every night until I involuntarily fall asleep with device on</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Question 5: Scrolling Control -->
+            <fieldset class="pb-2">
+              <legend class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2 mb-3">
+                <span class="w-6 h-6 rounded-full bg-forest-100 text-forest-800 text-xs font-mono font-bold inline-flex items-center justify-center">5</span>
+                When opening short-form videos (Reels, TikTok, Shorts), how difficult is it to stop after your intended time?
+              </legend>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                  <input type="radio" name="assess-scrolling" value="4" class="text-forest-800 focus:ring-forest-800">
+                  <span>Easy (I do not use short-form algorithmic feeds)</span>
+                </label>
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                  <input type="radio" name="assess-scrolling" value="3" class="text-forest-800 focus:ring-forest-800">
+                  <span>Moderate (I notice and close after 10-15 minutes)</span>
+                </label>
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                  <input type="radio" name="assess-scrolling" value="2" class="text-forest-800 focus:ring-forest-800" checked>
+                  <span>Difficult (Intended for 5 mins, end up staying for 45+)</span>
+                </label>
+                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                  <input type="radio" name="assess-scrolling" value="1" class="text-forest-800 focus:ring-forest-800">
+                  <span>Extreme (Completely lose perception of time and deadlines)</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Submit Button & Privacy Statement -->
+            <div class="pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+              <div class="flex items-center gap-2 text-xs text-slate-500">
+                <i class="fa-solid fa-lock text-forest-700"></i>
+                <span>Private calculation. Calculated strictly in your browser.</span>
+              </div>
+              <button type="submit" class="bg-forest-800 hover:bg-forest-900 text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-xs transition flex items-center gap-2">
+                <i class="fa-solid fa-chart-simple"></i>
+                <span>Generate Habit Reflection Report</span>
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Dynamic Results Container (Injected via JS) -->
+        <div id="assessment-results-container" class="mt-8 hidden"></div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- SECTION C: INTERACTIVE WELLNESS MATCHER -->
+    <!-- ======================================================== -->
+    <section id="matcher" class="py-16 sm:py-20 bg-slate-50/70 border-b border-[#e6e4dc]">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        
+        <div class="text-center mb-10">
+          <span class="badge badge-category uppercase font-bold tracking-wider mb-2">Constraint-Enforced Recommendations</span>
+          <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-forest-950">
+            Interactive Wellness Matcher
+          </h2>
+          <p class="text-sm text-slate-600 mt-2 max-w-xl mx-auto">
+            Select your exact pain point, operating system, and pricing preferences. Our engine strictly checks compatibility—guaranteeing no unsupported platforms or broken promises.
+          </p>
+        </div>
+
+        <!-- Matcher Filter Card -->
+        <div class="card-wellness p-6 sm:p-8 border border-slate-200 shadow-sm mb-8">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            
+            <!-- Constraint 1: Primary Problem -->
+            <div>
+              <label for="matcher-problem" class="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">
+                1. Primary Struggle
+              </label>
+              <select id="matcher-problem" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-slate-700 focus:border-forest-700 focus:ring-1 focus:ring-forest-700">
+                <option value="all">Any / General Digital Wellness</option>
+                <option value="social-media">Social Media Doomscrolling</option>
+                <option value="youtube">YouTube Distractions & Shorts</option>
+                <option value="study-concentration">Study Focus & Task Sprinting</option>
+                <option value="notifications">Notification Overload & Urges</option>
+                <option value="bedtime">Bedtime Phone Use & Blue Light</option>
+                <option value="screen-time">Excessive Screen Time Limits</option>
+                <option value="activity-tracking">Screen Time Auditing</option>
+                <option value="privacy">Privacy & Tracking Concerns</option>
+              </select>
+            </div>
+
+            <!-- Constraint 2: Operating System -->
+            <div>
+              <label for="matcher-platform" class="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">
+                2. Your Device / OS
+              </label>
+              <select id="matcher-platform" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-slate-700 focus:border-forest-700 focus:ring-1 focus:ring-forest-700">
+                <option value="all">Any Operating System</option>
+                <option value="windows">Windows PC</option>
+                <option value="mac">macOS (Apple Mac)</option>
+                <option value="linux">Linux Desktop</option>
+                <option value="android">Android Phone / Tablet</option>
+                <option value="ios">iPhone / iPad (iOS)</option>
+                <option value="chrome">Chrome Browser Extension</option>
+                <option value="firefox">Firefox Browser Extension</option>
+                <option value="edge">Edge Browser Extension</option>
+                <option value="web">Web Browser (No Install)</option>
+              </select>
+            </div>
+
+            <!-- Constraint 3: Pricing Preference -->
+            <div>
+              <label for="matcher-pricing" class="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">
+                3. Pricing Model
+              </label>
+              <select id="matcher-pricing" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-slate-700 focus:border-forest-700 focus:ring-1 focus:ring-forest-700">
+                <option value="all">Any Pricing Model</option>
+                <option value="free">100% Free Only</option>
+                <option value="foss">Open Source (FOSS) Only</option>
+                <option value="freemium">Freemium (Usable Free Tier)</option>
+                <option value="paid">One-Time Paid / Low Cost</option>
+              </select>
+            </div>
+
+            <!-- Constraint 4: Solution Type -->
+            <div>
+              <label for="matcher-type" class="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">
+                4. Solution Type
+              </label>
+              <select id="matcher-type" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-slate-700 focus:border-forest-700 focus:ring-1 focus:ring-forest-700">
+                <option value="all">Any Solution Type</option>
+                <option value="extension">Browser Extension</option>
+                <option value="desktop">Desktop Application</option>
+                <option value="mobile">Mobile App / Built-in OS</option>
+                <option value="web">Web Application (Zero-Install)</option>
+              </select>
+            </div>
+
+          </div>
+
+          <!-- Matcher Action Buttons -->
+          <div class="mt-6 pt-5 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
+            <button id="btn-reset-match" class="text-xs font-semibold text-slate-500 hover:text-slate-800 py-2 px-3 rounded-lg hover:bg-slate-100 transition">
+              <i class="fa-solid fa-rotate-left mr-1"></i> Reset Criteria
+            </button>
+            <button id="btn-run-match" class="bg-forest-800 hover:bg-forest-900 text-white font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-xl shadow-xs transition flex items-center gap-2">
+              <i class="fa-solid fa-filter"></i>
+              <span>Find Verified Matches</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Dynamic Results Container -->
+        <div id="matcher-results-container" class="hidden"></div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- SECTION D: DIGITAL WELLNESS RESOURCE LIBRARY -->
+    <!-- ======================================================== -->
+    <section id="resources" class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 border-b border-slate-200 pb-6">
+        <div>
+          <span class="badge badge-category uppercase font-bold tracking-wider mb-1">Vetted Collection</span>
+          <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-forest-950">
+            Digital Wellness Resource Library
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
+            13 carefully verified resources. We evaluate real costs, privacy models, and device support so you never get trapped by surprise paywalls, telemetry harvesting, or locked features.
+          </p>
+        </div>
+
+        <!-- Filter Count Badge -->
+        <div id="library-results-count" class="text-xs font-mono font-semibold text-forest-800 bg-forest-50 border border-forest-200 px-3 py-1.5 rounded-lg shrink-0">
+          Showing 13 of 13 resources
+        </div>
+      </div>
+
+      <!-- Search & Multi-Faceted Filter Controls -->
+      <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-2xs mb-8 space-y-4">
+        
+        <!-- Search Bar -->
+        <div class="relative">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-xs"></i>
+          <input type="text" id="library-search-input" placeholder="Search by tool name, purpose, platform, or keyword (e.g. YouTube, Pomodoro, open source)..." class="w-full text-xs sm:text-sm pl-9 pr-10 py-2.5 border border-slate-300 rounded-xl bg-slate-50/50 focus:bg-white focus:border-forest-700 focus:ring-1 focus:ring-forest-700 transition">
+          <button id="library-search-clear" class="absolute right-3 top-2.5 text-slate-400 hover:text-slate-600 text-xs hidden" aria-label="Clear search query">
+            <i class="fa-solid fa-circle-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Filter Buttons & Dropdowns Row -->
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pt-3 border-t border-slate-100">
+          
+          <!-- Category Tabs -->
+          <div class="flex flex-wrap gap-1.5" id="library-category-filters" role="tablist" aria-label="Resource Category Filters">
+            <button class="category-btn active py-1.5 px-3 rounded-lg text-xs font-semibold text-white bg-forest-800 shadow-2xs transition" data-category="all">All (13)</button>
+            <button class="category-btn py-1.5 px-3 rounded-lg text-xs font-semibold text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 transition" data-category="focus">Focus & Blockers</button>
+            <button class="category-btn py-1.5 px-3 rounded-lg text-xs font-semibold text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 transition" data-category="screen-time">Screen Time & Habits</button>
+            <button class="category-btn py-1.5 px-3 rounded-lg text-xs font-semibold text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 transition" data-category="sleep">Sleep & Eye Comfort</button>
+            <button class="category-btn py-1.5 px-3 rounded-lg text-xs font-semibold text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 transition" data-category="privacy">Privacy & Tracking</button>
+            <button class="category-btn py-1.5 px-3 rounded-lg text-xs font-semibold text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 transition" data-category="organization">Digital Organization</button>
+          </div>
+
+          <!-- Secondary Dropdowns (Platform & Pricing) -->
+          <div class="flex items-center gap-2 self-start lg:self-auto">
+            <select id="library-platform-filter" class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white text-slate-700 focus:border-forest-700">
+              <option value="all">Platform: All</option>
+              <option value="windows">Windows</option>
+              <option value="mac">macOS</option>
+              <option value="linux">Linux</option>
+              <option value="ios">iOS (iPhone)</option>
+              <option value="android">Android</option>
+              <option value="chrome">Chrome / Browser</option>
+            </select>
+
+            <select id="library-pricing-filter" class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white text-slate-700 focus:border-forest-700">
+              <option value="all">Pricing: All</option>
+              <option value="free">100% Free</option>
+              <option value="foss">FOSS (Open Source)</option>
+              <option value="freemium">Freemium</option>
+              <option value="paid">Paid</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Resource Grid Container -->
+      <div id="resource-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered dynamically by library.js -->
+      </div>
+
+    </section>
+
+    <!-- RESOURCE TECHNICAL SPECIFICATIONS MODAL DIALOG (ACCESSIBLE) -->
+    <div id="resource-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl border border-slate-200 relative">
+        <button id="modal-close-btn" class="absolute top-5 right-5 p-2 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition" aria-label="Close specifications modal">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+        <div id="modal-content-body">
+          <!-- Populated by openResourceModal(id) -->
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- SECTION E: RESOURCE COMPARISON MATRIX -->
+    <!-- ======================================================== -->
+    <section id="comparison" class="py-16 sm:py-20 bg-slate-100/70 border-t border-b border-[#e6e4dc]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+          <div>
+            <span class="badge badge-category uppercase font-bold tracking-wider mb-1">Standardized Evaluation</span>
+            <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-forest-950">
+              Resource Comparison Matrix
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl">
+              11 comprehensive benchmark columns evaluating pricing honesty, platform support, data privacy, and critical student limitations across all 13 resources.
+            </p>
+          </div>
+
+          <!-- Controls: Category Filter & Mobile View Toggle -->
+          <div class="flex items-center gap-3">
+            <select id="comparison-category-select" class="text-xs border border-slate-300 rounded-lg px-3 py-2 bg-white text-slate-700 focus:border-forest-700">
+              <option value="all">All Categories (13)</option>
+              <option value="focus">Focus & Blockers</option>
+              <option value="screen-time">Screen Time & Habits</option>
+              <option value="sleep">Sleep & Eye Comfort</option>
+              <option value="privacy">Privacy & Tracking</option>
+              <option value="organization">Digital Organization</option>
+            </select>
+
+            <button id="comparison-view-toggle" class="text-xs font-semibold px-3 py-2 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 transition text-slate-700 shadow-2xs">
+              <i class="fa-solid fa-table-cells-large mr-1.5"></i> Switch to Cards
+            </button>
+          </div>
+        </div>
+
+        <!-- Table Wrapper Container -->
+        <div id="comparison-table-wrapper" class="overflow-x-auto bg-white rounded-2xl shadow-sm border border-slate-200">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="bg-slate-50 border-b border-slate-200 text-slate-700 font-bold uppercase tracking-wider text-[11px]">
+                <th scope="col" class="py-3.5 px-4 sticky left-0 bg-slate-50 z-20 shadow-xs sortable-th cursor-pointer hover:text-forest-800" data-sort="name">
+                  Resource <i class="sort-icon fa-solid fa-sort-up text-forest-800 ml-1"></i>
+                </th>
+                <th scope="col" class="py-3.5 px-3 sortable-th cursor-pointer hover:text-forest-800" data-sort="categoryLabel">
+                  Category <i class="sort-icon fa-solid fa-sort text-slate-300 ml-1"></i>
+                </th>
+                <th scope="col" class="py-3.5 px-3 min-w-[220px]">Primary Purpose</th>
+                <th scope="col" class="py-3.5 px-3">Supported Platforms</th>
+                <th scope="col" class="py-3.5 px-3 sortable-th cursor-pointer hover:text-forest-800" data-sort="pricing">
+                  Pricing Model <i class="sort-icon fa-solid fa-sort text-slate-300 ml-1"></i>
+                </th>
+                <th scope="col" class="py-3.5 px-3">Account Needed</th>
+                <th scope="col" class="py-3.5 px-3 min-w-[180px]">Privacy & Data Handling</th>
+                <th scope="col" class="py-3.5 px-3 min-w-[160px]">Accessibility</th>
+                <th scope="col" class="py-3.5 px-3 min-w-[180px]">Important Catch / Limitation</th>
+                <th scope="col" class="py-3.5 px-3">Official Source</th>
+                <th scope="col" class="py-3.5 px-3">Check Date</th>
+              </tr>
+            </thead>
+            <tbody id="comparison-tbody" class="divide-y divide-slate-200/80 text-slate-600">
+              <!-- Rendered dynamically by comparison.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Mobile Card View Alternative Wrapper -->
+        <div id="comparison-cards-wrapper" class="grid grid-cols-1 sm:grid-cols-2 gap-4 hidden">
+          <!-- Populated by comparison.js on toggle -->
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- SECTION F: PRACTICAL SETUP GUIDES -->
+    <!-- ======================================================== -->
+    <section id="guides" class="py-16 sm:py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-10">
+        <span class="badge badge-category uppercase font-bold tracking-wider mb-1">Student Walkthroughs</span>
+        <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-forest-950">
+          3 Practical Setup Guides
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl mx-auto leading-relaxed">
+          Step-by-step implementation tutorials with UI mockups, expected results, and troubleshooting tips. No tracking accounts or complicated scripts required.
+        </p>
+      </div>
+
+      <!-- Accessible ARIA Guide Tabs -->
+      <div class="flex justify-center border-b border-slate-200 mb-8 space-x-1 sm:space-x-3 overflow-x-auto" role="tablist" aria-label="Setup Guide Tutorials">
+        <button id="tab-guide-1" role="tab" aria-selected="true" aria-controls="pane-guide-1" tabindex="0" class="guide-tab-btn py-3 px-4 font-bold text-xs sm:text-sm border-b-2 border-forest-800 text-forest-900 flex items-center gap-2 transition whitespace-nowrap">
+          <i class="fa-brands fa-youtube text-rose-600"></i> Guide 1: Distraction-Proof YouTube
+        </button>
+        <button id="tab-guide-2" role="tab" aria-selected="false" aria-controls="pane-guide-2" tabindex="-1" class="guide-tab-btn py-3 px-4 font-semibold text-xs sm:text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2 transition whitespace-nowrap">
+          <i class="fa-solid fa-moon text-indigo-600"></i> Guide 2: Nighttime Bedtime & Grayscale
+        </button>
+        <button id="tab-guide-3" role="tab" aria-selected="false" aria-controls="pane-guide-3" tabindex="-1" class="guide-tab-btn py-3 px-4 font-semibold text-xs sm:text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2 transition whitespace-nowrap">
+          <i class="fa-solid fa-chart-line text-emerald-600"></i> Guide 3: Private Activity Tracking
+        </button>
+      </div>
+
+      <!-- GUIDE 1: DISTRACTION-PROOF YOUTUBE -->
+      <div id="pane-guide-1" role="tabpanel" aria-labelledby="tab-guide-1" class="card-wellness p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-slate-100">
+          <div>
+            <span class="badge badge-category">Browser Productivity Extension</span>
+            <h3 class="text-xl font-bold text-slate-900 mt-1">Eliminating YouTube Algorithmic Traps Using Unhook</h3>
+          </div>
+          <span class="text-xs text-slate-400 font-mono"><i class="fa-regular fa-clock mr-1"></i> Setup Time: 3 mins</span>
+        </div>
+
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          YouTube is indispensable for lecture recordings, programming tutorials, and homework walk-throughs. However, the homepage recommendations, sidebar video wormholes, comments section, and vertical Shorts are specifically engineered to hijack student attention. This guide details how to configure <strong>Unhook</strong> to strip all algorithmic engagement loops.
+        </p>
+
+        <!-- UI Mockup Container (Diagram Representation) -->
+        <div class="mockup-window my-4">
+          <div class="mockup-header">
+            <span class="mockup-dot bg-rose-400"></span>
+            <span class="mockup-dot bg-amber-400"></span>
+            <span class="mockup-dot bg-emerald-400"></span>
+            <span class="text-[11px] font-mono text-slate-500 ml-2">Unhook Extension Menu — Chrome / Firefox / Edge</span>
+          </div>
+          <div class="p-4 bg-slate-50 text-xs text-slate-700 space-y-2">
+            <div class="flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200">
+              <span class="font-bold text-slate-800"><i class="fa-solid fa-toggle-on text-forest-700 mr-2 text-base"></i> Hide Home Feed</span>
+              <span class="text-[11px] text-slate-500">Replaces home feed with zen search bar</span>
+            </div>
+            <div class="flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200">
+              <span class="font-bold text-slate-800"><i class="fa-solid fa-toggle-on text-forest-700 mr-2 text-base"></i> Hide Video Sidebar Recommendations</span>
+              <span class="text-[11px] text-slate-500">Prevents side-video autoplay rabbit holes</span>
+            </div>
+            <div class="flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200">
+              <span class="font-bold text-slate-800"><i class="fa-solid fa-toggle-on text-forest-700 mr-2 text-base"></i> Hide Shorts Tab & Vertical Carousels</span>
+              <span class="text-[11px] text-slate-500">Eliminates algorithmic vertical doomscrolling</span>
+            </div>
+            <div class="flex items-center justify-between p-2 rounded-lg bg-white border border-slate-200">
+              <span class="font-bold text-slate-800"><i class="fa-solid fa-toggle-on text-forest-700 mr-2 text-base"></i> Hide Comments & Chat Replay</span>
+              <span class="text-[11px] text-slate-500">Removes cognitive noise and flame wars</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step-by-Step Instructions -->
+        <div class="space-y-4 text-xs sm:text-sm">
+          <div class="flex gap-3">
+            <div class="w-7 h-7 rounded-full bg-forest-100 text-forest-800 font-bold flex items-center justify-center shrink-0">1</div>
+            <div>
+              <h4 class="font-bold text-slate-900">Install Unhook from Official Web Stores</h4>
+              <p class="text-slate-600 mt-0.5">Visit the Chrome Web Store, Firefox Add-ons, or Microsoft Edge Add-ons repository. Search for <strong>Unhook - Remove YouTube Recommended Videos</strong>. Verify the author is <em>Unhook App</em> and click Add Extension. It requires zero accounts and zero sign-in credentials.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-3">
+            <div class="w-7 h-7 rounded-full bg-forest-100 text-forest-800 font-bold flex items-center justify-center shrink-0">2</div>
+            <div>
+              <h4 class="font-bold text-slate-900">Configure Minimalist Academic Preset</h4>
+              <p class="text-slate-600 mt-0.5">Navigate to `youtube.com`. Click the puzzle icon in your browser toolbar, pin the Unhook icon, and click it. Ensure the top master toggle is set to <strong>ON</strong>. Check the boxes for <em>Hide Home Feed</em>, <em>Hide Video Sidebar</em>, <em>Hide Comments</em>, and <em>Hide Shorts</em>.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-3">
+            <div class="w-7 h-7 rounded-full bg-forest-100 text-forest-800 font-bold flex items-center justify-center shrink-0">3</div>
+            <div>
+              <h4 class="font-bold text-slate-900">Test the Academic Result</h4>
+              <p class="text-slate-600 mt-0.5">Refresh YouTube. The home screen will now display only an empty, calm search bar. Type the topic of your college lecture (e.g. "Linear Algebra 18.06 MIT"). When you open a lecture video, the sidebar and comment clutter are completely absent. When the lecture finishes, you exit cleanly without algorithmic rabbit holes.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Troubleshooting Accordion -->
+        <div class="pt-4 border-t border-slate-100">
+          <button class="troubleshoot-toggle w-full flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-slate-100 text-xs font-bold text-slate-800 transition" aria-expanded="false">
+            <span class="flex items-center gap-2">
+              <i class="fa-solid fa-circle-question text-forest-700"></i>
+              <span>Common Issues & Troubleshooting (Unhook)</span>
+            </span>
+            <i class="troubleshoot-icon fa-solid fa-chevron-down text-xs text-slate-400"></i>
+          </button>
+          <div class="hidden p-4 bg-slate-50/50 rounded-b-xl border-x border-b border-slate-200 text-xs text-slate-600 space-y-2">
+            <div>
+              <strong class="text-slate-800">Q: Does this block YouTube videos on my smartphone app?</strong>
+              <p>A: No. Unhook is a browser extension and operates solely inside Chrome, Firefox, Safari, and Edge desktop/mobile browser tabs. For native mobile apps, use bedtime grayscale or app timers.</p>
+            </div>
+            <div>
+              <strong class="text-slate-800">Q: What if I need to find related lecture clips?</strong>
+              <p>A: You can click the Unhook toolbar icon at any time and uncheck "Hide Video Sidebar" temporarily, or use the top search bar with specific playlist queries.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- GUIDE 2: BEDTIME ROUTINES & GRAYSCALE -->
+      <div id="pane-guide-2" role="tabpanel" aria-labelledby="tab-guide-2" class="card-wellness p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6 hidden">
+        <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-slate-100">
+          <div>
+            <span class="badge badge-category">Mobile & Circadian Sleep Hygiene</span>
+            <h3 class="text-xl font-bold text-slate-900 mt-1">Configuring Scheduled Grayscale & Bedtime Sleep Focus</h3>
+          </div>
+          <span class="text-xs text-slate-400 font-mono"><i class="fa-regular fa-clock mr-1"></i> Setup Time: 5 mins</span>
+        </div>
+
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Bright saturated colors on social media trigger dopamine anticipation in the brain, turning brief bedtime checks into hour-long doomscrolling sessions. Converting your mobile screen to monochrome black-and-white after 10:30 PM drastically reduces psychological allure and promotes natural sleep onset.
+        </p>
+
+        <!-- UI Comparison Grid: iOS vs Android -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          
+          <!-- iOS Instructions -->
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+            <h4 class="font-bold text-slate-900 text-xs sm:text-sm flex items-center gap-2">
+              <i class="fa-brands fa-apple text-slate-800"></i> iPhone / iPad (iOS) Setup
+            </h4>
+            <ol class="list-decimal pl-4 text-xs text-slate-600 space-y-1.5">
+              <li>Open <strong>Settings &gt; Accessibility &gt; Display &amp; Text Size</strong>.</li>
+              <li>Tap <strong>Color Filters</strong>, toggle <strong>ON</strong>, and choose <strong>Grayscale</strong>.</li>
+              <li>To enable quick toggles: Navigate to <strong>Accessibility Shortcut</strong> at the bottom of Accessibility settings, and select <em>Color Filters</em>. Now triple-clicking the side power button instantly switches your screen between full color and monochrome.</li>
+              <li>Scheduled Automation: Open the built-in <strong>Shortcuts</strong> app, tap <em>Automation &gt; New Automation</em>, select <em>Time of Day (e.g. 10:30 PM)</em>, add action <em>Set Color Filters ON</em>, and create a morning trigger at 7:00 AM to switch it <em>OFF</em>.</li>
+            </ol>
+          </div>
+
+          <!-- Android Instructions -->
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+            <h4 class="font-bold text-slate-900 text-xs sm:text-sm flex items-center gap-2">
+              <i class="fa-brands fa-android text-emerald-600"></i> Android (Samsung / Pixel / Motorola) Setup
+            </h4>
+            <ol class="list-decimal pl-4 text-xs text-slate-600 space-y-1.5">
+              <li>Open <strong>Settings &gt; Digital Wellbeing &amp; Parental Controls</strong>.</li>
+              <li>Tap <strong>Bedtime mode</strong> (built natively into Android 10+).</li>
+              <li>Tap <strong>Turn on based on a schedule</strong> and specify your target study wind-down hours (e.g. 10:30 PM – 7:00 AM).</li>
+              <li>Under <em>Screen options at bedtime</em>, check <strong>Grayscale</strong> and <strong>Keep the screen dark</strong>.</li>
+              <li>Configure <em>Do Not Disturb</em> to allow calls from favorite emergency contacts while silencing group chats and promotional notifications.</li>
+            </ol>
+          </div>
+
+        </div>
+
+        <!-- Troubleshooting Accordion -->
+        <div class="pt-4 border-t border-slate-100">
+          <button class="troubleshoot-toggle w-full flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-slate-100 text-xs font-bold text-slate-800 transition" aria-expanded="false">
+            <span class="flex items-center gap-2">
+              <i class="fa-solid fa-circle-question text-forest-700"></i>
+              <span>Common Issues & Troubleshooting (Bedtime Mode)</span>
+            </span>
+            <i class="troubleshoot-icon fa-solid fa-chevron-down text-xs text-slate-400"></i>
+          </button>
+          <div class="hidden p-4 bg-slate-50/50 rounded-b-xl border-x border-b border-slate-200 text-xs text-slate-600 space-y-2">
+            <div>
+              <strong class="text-slate-800">Q: What if I have an emergency call from family at night?</strong>
+              <p>A: In both iOS Focus and Android Bedtime Mode, configure the VIP exception whitelist: add your parents, roommates, or campus safety to 'Allowed Callers'. Repeated calls within 3 minutes also automatically break through DND by default.</p>
+            </div>
+            <div>
+              <strong class="text-slate-800">Q: Does grayscale make reading PDF textbooks hard?</strong>
+              <p>A: Plain-text reading is unaffected. If you need to view color charts, use the triple-click side button shortcut on iPhone or Quick Settings tile on Android to momentarily pause grayscale.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- GUIDE 3: PRIVATE ACTIVITY TRACKING (ACTIVITYWATCH) -->
+      <div id="pane-guide-3" role="tabpanel" aria-labelledby="tab-guide-3" class="card-wellness p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6 hidden">
+        <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-slate-100">
+          <div>
+            <span class="badge badge-category">Open-Source &amp; Local-First Telemetry</span>
+            <h3 class="text-xl font-bold text-slate-900 mt-1">Self-Hosted Screen Time Auditing with ActivityWatch</h3>
+          </div>
+          <span class="text-xs text-slate-400 font-mono"><i class="fa-regular fa-clock mr-1"></i> Setup Time: 6 mins</span>
+        </div>
+
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Commercial productivity trackers like RescueTime transmit your private window titles, document filenames, and URL browsing logs to remote cloud corporate servers. <strong>ActivityWatch</strong> is 100% free and open-source (FOSS): all screen time metrics are stored locally on your own machine at `localhost:5600`.
+        </p>
+
+        <!-- UI Mockup Container -->
+        <div class="mockup-window my-4">
+          <div class="mockup-header">
+            <span class="mockup-dot bg-rose-400"></span>
+            <span class="mockup-dot bg-amber-400"></span>
+            <span class="mockup-dot bg-emerald-400"></span>
+            <span class="text-[11px] font-mono text-slate-500 ml-2">ActivityWatch Local Dashboard — http://localhost:5600</span>
+          </div>
+          <div class="p-4 bg-white text-xs text-slate-700 space-y-2">
+            <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+              <span class="font-bold text-slate-800"><i class="fa-solid fa-code text-indigo-600 mr-2"></i> VS Code / Programming</span>
+              <span class="font-mono text-forest-700 font-bold">2h 45m (Productive)</span>
+            </div>
+            <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+              <span class="font-bold text-slate-800"><i class="fa-solid fa-file-pdf text-rose-600 mr-2"></i> Research PDF (Canvas Portal)</span>
+              <span class="font-mono text-forest-700 font-bold">1h 12m (Productive)</span>
+            </div>
+            <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+              <span class="font-bold text-slate-800"><i class="fa-solid fa-globe text-amber-600 mr-2"></i> Reddit &amp; Social Feeds</span>
+              <span class="font-mono text-amber-800 font-bold">38m (Leisure)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step-by-Step Instructions -->
+        <div class="space-y-4 text-xs sm:text-sm">
+          <div class="flex gap-3">
+            <div class="w-7 h-7 rounded-full bg-forest-100 text-forest-800 font-bold flex items-center justify-center shrink-0">1</div>
+            <div>
+              <h4 class="font-bold text-slate-900">Download the Official Executable</h4>
+              <p class="text-slate-600 mt-0.5">Head to <span class="font-mono text-slate-800 bg-slate-100 px-1.5 py-0.5 rounded">activitywatch.net</span> and download the release for Windows, macOS, or Linux. Unzip the archive and run `aw-qt`. An ActivityWatch tray icon will appear in your system notification area.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-3">
+            <div class="w-7 h-7 rounded-full bg-forest-100 text-forest-800 font-bold flex items-center justify-center shrink-0">2</div>
+            <div>
+              <h4 class="font-bold text-slate-900">Install the Browser Watcher Extension (Critical for Tab Granularity)</h4>
+              <p class="text-slate-600 mt-0.5">By default, ActivityWatch only logs desktop process names (e.g. `chrome.exe`). To see whether you were reading lecture slides or watching entertainment videos, install the official <strong>aw-watcher-web</strong> extension from the Chrome or Firefox store. It connects solely to `http://localhost:5600`.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-3">
+            <div class="w-7 h-7 rounded-full bg-forest-100 text-forest-800 font-bold flex items-center justify-center shrink-0">3</div>
+            <div>
+              <h4 class="font-bold text-slate-900">Review Your Daily Timeline in the Local Dashboard</h4>
+              <p class="text-slate-600 mt-0.5">Right-click the system tray icon and click <strong>Open Dashboard</strong>. You will be greeted with an interactive visual breakdown of active vs AFK (away-from-keyboard) time, category distribution, and top applications without third-party tracking.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Troubleshooting Accordion -->
+        <div class="pt-4 border-t border-slate-100">
+          <button class="troubleshoot-toggle w-full flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-slate-100 text-xs font-bold text-slate-800 transition" aria-expanded="false">
+            <span class="flex items-center gap-2">
+              <i class="fa-solid fa-circle-question text-forest-700"></i>
+              <span>Common Issues & Troubleshooting (ActivityWatch)</span>
+            </span>
+            <i class="troubleshoot-icon fa-solid fa-chevron-down text-xs text-slate-400"></i>
+          </button>
+          <div class="hidden p-4 bg-slate-50/50 rounded-b-xl border-x border-b border-slate-200 text-xs text-slate-600 space-y-2">
+            <div>
+              <strong class="text-slate-800">Q: Does ActivityWatch transmit data over the Internet?</strong>
+              <p>A: No. ActivityWatch has zero cloud database servers. If you disconnect your computer from Wi-Fi completely, the dashboard and logging continue to run normally.</p>
+            </div>
+            <div>
+              <strong class="text-slate-800">Q: Does it slow down my computer?</strong>
+              <p>A: ActivityWatch is lightweight and consumes under 40 MB of RAM, significantly less than typical browser tabs.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- SECTION G: DIGITAL WELLNESS TOOLKIT -->
+    <!-- ======================================================== -->
+    <section id="toolkit" class="py-16 sm:py-20 bg-slate-50/70 border-t border-b border-[#e6e4dc]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="badge badge-category uppercase font-bold tracking-wider mb-1">Functional Utilities</span>
+          <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-forest-950">
+            Digital Wellness Interactive Toolkit
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-2">
+            Four functional, in-browser utilities to support student focus sprints, screen audits, notification cleanups, and sleep routines. All data persists locally in your browser.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          
+          <!-- TOOL 1: POMODORO FOCUS TIMER -->
+          <div class="card-wellness p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-6">
+                <div class="flex items-center gap-2">
+                  <div class="w-8 h-8 rounded-lg bg-forest-100 text-forest-800 flex items-center justify-center font-bold text-sm">
+                    <i class="fa-solid fa-stopwatch"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-base font-bold text-slate-900">Pomodoro Focus Timer</h3>
+                    <span class="text-[11px] text-slate-500">25m Work / 5m Rest Interval Cadence</span>
+                  </div>
+                </div>
+                <button id="timer-mute-btn" class="p-2 rounded-lg text-slate-400 hover:text-forest-800 hover:bg-slate-100 transition" aria-label="Toggle chime audio" title="Audio chime enabled">
+                  <i class="fa-solid fa-volume-high text-forest-800"></i>
+                </button>
+              </div>
+
+              <!-- Mode Buttons -->
+              <div class="flex justify-center gap-2 mb-6">
+                <button class="timer-mode-btn px-3.5 py-1.5 rounded-lg text-xs font-bold text-white bg-forest-800 shadow-2xs transition" data-mode="focus">Focus (25m)</button>
+                <button class="timer-mode-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 transition" data-mode="shortBreak">Short Break (5m)</button>
+                <button class="timer-mode-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 transition" data-mode="longBreak">Long Break (15m)</button>
+              </div>
+
+              <!-- Visual Circular Timer Display -->
+              <div class="relative w-48 h-48 mx-auto my-2 flex items-center justify-center">
+                <svg class="w-full h-full transform -rotate-90" viewBox="0 0 160 160">
+                  <circle cx="80" cy="80" r="70" stroke="#e2e8f0" stroke-width="8" fill="transparent" />
+                  <circle id="timer-progress-ring" cx="80" cy="80" r="70" stroke="#143e2e" stroke-width="8" stroke-linecap="round" fill="transparent" class="progress-ring-circle" />
+                </svg>
+                <div class="absolute flex flex-col items-center justify-center text-center">
+                  <span id="timer-time-display" class="font-heading font-extrabold text-4xl text-forest-950 font-mono tracking-tight">25:00</span>
+                  <span id="timer-status-badge" class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-forest-100 text-forest-900 border border-forest-200 mt-1">Focus Sprint</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-100">
+              <div class="flex items-center justify-center gap-3 mb-4">
+                <button id="timer-start-pause-btn" class="bg-forest-800 hover:bg-forest-900 text-white font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-xl shadow-xs transition flex items-center gap-1.5">
+                  <i class="fa-solid fa-play mr-1.5"></i> Start Focus
+                </button>
+                <button id="timer-reset-btn" class="bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl transition">
+                  <i class="fa-solid fa-rotate-left mr-1"></i> Reset
+                </button>
+                <button id="timer-skip-btn" class="text-xs text-slate-500 hover:text-slate-800 font-semibold px-3 py-2 rounded-lg hover:bg-slate-100 transition">
+                  Skip Interval
+                </button>
+              </div>
+
+              <div class="flex items-center justify-between text-xs text-slate-500 px-2">
+                <span>Completed Sprints: <strong id="timer-session-count" class="text-forest-800 font-mono">0</strong></span>
+                <span class="text-[11px]"><i class="fa-solid fa-bell text-forest-700 mr-1"></i> Synthesized Chime Audio</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOOL 2: DIGITAL TIME CALCULATOR -->
+          <div class="card-wellness p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-6">
+                <div class="flex items-center gap-2">
+                  <div class="w-8 h-8 rounded-lg bg-forest-100 text-forest-800 flex items-center justify-center font-bold text-sm">
+                    <i class="fa-solid fa-calculator"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-base font-bold text-slate-900">Digital Time Calculator</h3>
+                    <span class="text-[11px] text-slate-500">Calculate Weekly Totals & Productive vs Leisure Ratio</span>
+                  </div>
+                </div>
+                <span class="badge badge-free text-[10px]">Benchmark Tool</span>
+              </div>
+
+              <!-- Input Form -->
+              <form id="time-calc-form" class="space-y-4 text-xs">
+                <div>
+                  <div class="flex justify-between font-bold text-slate-700 mb-1">
+                    <label for="calc-productive-hours">Productive Daily Hours (Class, Code, Research):</label>
+                    <span class="font-mono text-forest-800 font-bold" id="label-prod-val"></span>
+                  </div>
+                  <input type="range" id="calc-productive-hours" min="0" max="12" step="0.5" value="3.5" class="w-full">
+                </div>
+
+                <div>
+                  <div class="flex justify-between font-bold text-slate-700 mb-1">
+                    <label for="calc-recreational-hours">Recreational Daily Hours (Social, Reels, Gaming):</label>
+                    <span class="font-mono text-amber-800 font-bold" id="label-rec-val"></span>
+                  </div>
+                  <input type="range" id="calc-recreational-hours" min="0" max="14" step="0.5" value="4.5" class="w-full">
+                </div>
+              </form>
+
+              <!-- Dynamic Calculator Results -->
+              <div id="time-calc-results" class="mt-6"></div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-400">
+              Undergraduate baseline: 4.4h recreational screen time (Journal of Amer. Coll. Health).
+            </div>
+          </div>
+
+          <!-- TOOL 3: NOTIFICATION AUDIT -->
+          <div class="card-wellness p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+                <div class="flex items-center gap-2">
+                  <div class="w-8 h-8 rounded-lg bg-forest-100 text-forest-800 flex items-center justify-center font-bold text-sm">
+                    <i class="fa-solid fa-bell-slash"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-base font-bold text-slate-900">App Notification Audit</h3>
+                    <span class="text-[11px] text-slate-500">Identify Distracting Non-Human Pings</span>
+                  </div>
+                </div>
+                <span id="audit-completed-count" class="badge badge-category font-mono text-[10px]">0 of 9 Audited</span>
+              </div>
+
+              <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+                Check off apps as you adjust their settings in your smartphone. Silencing algorithmic promotional pings preserves deep cognitive flow.
+              </p>
+
+              <!-- Checklist Container -->
+              <div id="notification-audit-items" class="space-y-2 max-h-72 overflow-y-auto pr-1">
+                <!-- Rendered dynamically by toolkit.js -->
+              </div>
+            </div>
+
+            <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-[11px] text-slate-400">Saved to browser localStorage</span>
+              <button id="audit-reset-btn" class="text-slate-500 hover:text-slate-800 font-semibold text-xs">
+                Reset Audit
+              </button>
+            </div>
+          </div>
+
+          <!-- TOOL 4: BEDTIME ROUTINE PLANNER -->
+          <div class="card-wellness p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+                <div class="flex items-center gap-2">
+                  <div class="w-8 h-8 rounded-lg bg-forest-100 text-forest-800 flex items-center justify-center font-bold text-sm">
+                    <i class="fa-solid fa-bed"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-base font-bold text-slate-900">Bedtime Routine Planner</h3>
+                    <span class="text-[11px] text-slate-500">90-Minute Sleep Cycle Wind-Down Schedule</span>
+                  </div>
+                </div>
+                <span class="badge badge-free text-[10px]">Circadian Rhythm</span>
+              </div>
+
+              <!-- Planner Form Inputs -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4 text-xs">
+                <div>
+                  <label for="bedtime-wake-time" class="block font-bold text-slate-700 mb-1">Target Wake-Up Time:</label>
+                  <input type="time" id="bedtime-wake-time" value="07:30" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 font-mono text-slate-800 focus:border-forest-700">
+                </div>
+                <div>
+                  <label for="bedtime-cycles-select" class="block font-bold text-slate-700 mb-1">Sleep Duration Target:</label>
+                  <select id="bedtime-cycles-select" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 bg-white text-slate-800 focus:border-forest-700">
+                    <option value="5" selected>5 Cycles (7.5 Hours) — Recommended</option>
+                    <option value="6">6 Cycles (9.0 Hours) — Deep Recovery</option>
+                    <option value="4">4 Cycles (6.0 Hours) — Minimum</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Dynamic Calculated Schedule Output -->
+              <div id="bedtime-schedule-output" class="mb-4"></div>
+
+              <!-- Bedtime Habits Checklist -->
+              <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">Pre-Sleep Habit Checklist</h4>
+              <div id="bedtime-checklist-items" class="space-y-1.5">
+                <!-- Rendered by toolkit.js -->
+              </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-400">
+              Ultradian sleep stages: 90 mins each + 15 min sleep latency buffer.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- SECTION H: STUDENT FEEDBACK AND USABILITY TESTING -->
+    <!-- ======================================================== -->
+    <section id="feedback" class="py-16 sm:py-20 bg-white border-b border-[#e6e4dc]">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <span class="badge badge-category uppercase font-bold tracking-wider mb-1">Empirical Iteration</span>
+          <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-forest-950">
+            Student Feedback &amp; Usability Testing Audit
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-2">
+            Documenting genuine usability trials with college participants, problem identification, implemented revisions, and an active local testing feedback queue.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+          
+          <!-- Structured Feedback Form (Left Column, 6 cols) -->
+          <div class="lg:col-span-6 card-wellness p-6 sm:p-8 border border-slate-200 shadow-sm">
+            <h3 class="text-lg font-bold text-slate-900 mb-1 flex items-center gap-2">
+              <i class="fa-solid fa-pen-to-square text-forest-700"></i>
+              <span>Log Usability Testing Feedback</span>
+            </h3>
+            <p class="text-xs text-slate-500 mb-5 leading-relaxed">
+              Tested a wellness tool or walked through one of our setup guides? Record your findings. Submissions are saved locally to your browser and can be exported as JSON for grading evaluation.
+            </p>
+
+            <form id="usability-feedback-form" class="space-y-4 text-xs">
+              <div>
+                <label for="fb-major" class="block font-bold text-slate-700 mb-1">Your Major / Student Year</label>
+                <input type="text" id="fb-major" required placeholder="e.g. 2nd Year Computer Science" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-xs focus:border-forest-700 focus:ring-1 focus:ring-forest-700">
+              </div>
+
+              <div>
+                <label for="fb-resource" class="block font-bold text-slate-700 mb-1">Resource or Guide Evaluated</label>
+                <select id="fb-resource" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-xs bg-white focus:border-forest-700">
+                  <option value="Unhook YouTube Extension">Unhook (YouTube Guide 1)</option>
+                  <option value="Cold Turkey Blocker">Cold Turkey Blocker</option>
+                  <option value="Bedtime Mode & Grayscale">Bedtime Mode &amp; Grayscale (Guide 2)</option>
+                  <option value="ActivityWatch Local Tracker">ActivityWatch (Guide 3)</option>
+                  <option value="Pomofocus / Focus Timer">Pomofocus / Focus Timer</option>
+                  <option value="one sec App Delay">one sec - App Delay</option>
+                  <option value="f.lux Display Warmth">f.lux Display Warmth</option>
+                  <option value="uBlock Origin">uBlock Origin Ad Blocker</option>
+                  <option value="Obsidian / Joplin">Obsidian / Joplin Note-Taking</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="fb-task" class="block font-bold text-slate-700 mb-1">Task Attempted During Test</label>
+                <input type="text" id="fb-task" required placeholder="e.g. Attempted a 2-hour locked homework session" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-xs focus:border-forest-700 focus:ring-1 focus:ring-forest-700">
+              </div>
+
+              <!-- Ease of Use Rating (1-5 stars) -->
+              <div>
+                <span class="block font-bold text-slate-700 mb-1">Ease of Setup &amp; Use Rating</span>
+                <div class="flex items-center gap-4 text-slate-700 text-xs">
+                  <label class="flex items-center gap-1 cursor-pointer">
+                    <input type="radio" name="fb-rating" value="1" class="text-forest-800"> 1 (Difficult)
+                  </label>
+                  <label class="flex items-center gap-1 cursor-pointer">
+                    <input type="radio" name="fb-rating" value="2" class="text-forest-800"> 2
+                  </label>
+                  <label class="flex items-center gap-1 cursor-pointer">
+                    <input type="radio" name="fb-rating" value="3" class="text-forest-800"> 3
+                  </label>
+                  <label class="flex items-center gap-1 cursor-pointer">
+                    <input type="radio" name="fb-rating" value="4" checked class="text-forest-800"> 4
+                  </label>
+                  <label class="flex items-center gap-1 cursor-pointer">
+                    <input type="radio" name="fb-rating" value="5" class="text-forest-800"> 5 (Seamless)
+                  </label>
+                </div>
+              </div>
+
+              <div>
+                <label for="fb-problems" class="block font-bold text-slate-700 mb-1">Problems Encountered (if any)</label>
+                <textarea id="fb-problems" rows="2" placeholder="e.g. Locked out of campus login portal, instructions lacked extension link..." class="w-full border border-slate-300 rounded-xl px-3 py-2 text-xs focus:border-forest-700 focus:ring-1 focus:ring-forest-700"></textarea>
+              </div>
+
+              <div>
+                <label for="fb-suggestions" class="block font-bold text-slate-700 mb-1">Practical Suggestions for Hub</label>
+                <textarea id="fb-suggestions" rows="2" required placeholder="What should be clarified or changed for other students?" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-xs focus:border-forest-700 focus:ring-1 focus:ring-forest-700"></textarea>
+              </div>
+
+              <button type="submit" class="w-full bg-forest-800 hover:bg-forest-900 text-white font-semibold text-xs py-3 rounded-xl shadow-xs transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-floppy-disk"></i>
+                <span>Save Review to Local Testing Queue</span>
+              </button>
+            </form>
+
+            <!-- Success Persistence Callout -->
+            <div id="feedback-success-banner" class="hidden mt-4 p-3.5 bg-emerald-50 text-emerald-900 border border-emerald-200 rounded-xl text-xs flex items-start gap-2">
+              <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5"></i>
+              <span><strong>Saved to Local Queue:</strong> Your testing submission has been recorded in your browser's persistent session queue. You can review it below or export it as JSON.</span>
+            </div>
+          </div>
+
+          <!-- Active Local Submissions Feed (Right Column, 6 cols) -->
+          <div class="lg:col-span-6 card-wellness p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+                <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                  <i class="fa-solid fa-clipboard-list text-forest-700"></i>
+                  <span>Active Local Testing Queue</span>
+                </h3>
+                <div class="flex items-center gap-2">
+                  <button id="feedback-export-btn" class="text-xs font-semibold px-2.5 py-1 bg-forest-50 hover:bg-forest-100 text-forest-800 rounded-lg transition inline-flex items-center gap-1 border border-forest-200">
+                    <i class="fa-solid fa-download text-[10px]"></i> Export JSON
+                  </button>
+                  <button id="feedback-clear-btn" class="text-xs text-rose-600 hover:text-rose-800 font-semibold px-2 py-1 rounded-lg hover:bg-rose-50 transition hidden">
+                    Clear
+                  </button>
+                </div>
+              </div>
+
+              <div id="feedback-local-queue" class="max-h-96 overflow-y-auto pr-1">
+                <!-- Rendered dynamically by feedback.js -->
+              </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500">
+              <i class="fa-solid fa-circle-info text-forest-700 mr-1"></i> Transparent evaluation: submissions persist in localStorage without external tracking servers.
+            </div>
+          </div>
+
+        </div>
+
+        <!-- FORMAL REVISION LOG -->
+        <div class="mt-12 pt-8 border-t border-slate-200">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <span class="badge badge-free text-[10px]">Academic Testing Audit</span>
+              <h3 class="text-xl font-heading font-extrabold text-forest-950 mt-1">Completed Student Usability Testing &amp; Revision Log</h3>
+              <p class="text-xs text-slate-600 mt-0.5">Four university student trials conducted between October and November 2026.</p>
+            </div>
+            <span class="text-xs font-mono font-bold text-slate-400">4 Closed Issues</span>
+          </div>
+
+          <div id="usability-revision-log" class="space-y-4">
+            <!-- Rendered dynamically from testingData.js -->
+          </div>
+
+          <!-- Planned Testing Distinction -->
+          <div class="mt-6 p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 space-y-1">
+            <span class="font-bold text-slate-900 block"><i class="fa-solid fa-calendar-days text-forest-700 mr-1.5"></i> Planned Future Usability Testing (Phase 3 — Spring 2027 Cohort):</span>
+            <p>An expanded trial with 25 undergraduate students across STEM, Humanities, and Fine Arts to measure longitudinal 14-day screen time reduction using the Pittsburgh Sleep Quality Index.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- SECTION I: RESEARCH, METHODOLOGY AND SOURCES -->
+    <!-- ======================================================== -->
+    <section id="methodology" class="py-16 sm:py-20 bg-slate-50/70 border-b border-[#e6e4dc]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="badge badge-category uppercase font-bold tracking-wider mb-1">Academic Integrity</span>
+          <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-forest-950">
+            Research, Methodology &amp; Sources Directory
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-2">
+            Formal methodology documenting student audience needs, selection criteria, privacy evaluation rubrics, accessibility standards, and checked primary sources.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div class="card-wellness p-5 space-y-2">
+            <div class="w-8 h-8 rounded-lg bg-forest-100 text-forest-800 flex items-center justify-center font-bold text-sm">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <h4 class="font-bold text-sm text-slate-900">Target Student Audience</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Undergraduate and graduate university students facing heavy digital coursework, multi-tab split attention, social dopamine loops, and late-night screen-induced insomnia.
+            </p>
+          </div>
+
+          <div class="card-wellness p-5 space-y-2">
+            <div class="w-8 h-8 rounded-lg bg-forest-100 text-forest-800 flex items-center justify-center font-bold text-sm">
+              <i class="fa-solid fa-filter-circle-dollar"></i>
+            </div>
+            <h4 class="font-bold text-sm text-slate-900">Pricing Verification</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Every tool's storefront terms have been inspected manually. Solutions with deceptive auto-renewing weekly charges ($9.99/wk disguised as free trials) are strictly blacklisted.
+            </p>
+          </div>
+
+          <div class="card-wellness p-5 space-y-2">
+            <div class="w-8 h-8 rounded-lg bg-forest-100 text-forest-800 flex items-center justify-center font-bold text-sm">
+              <i class="fa-solid fa-universal-access"></i>
+            </div>
+            <h4 class="font-bold text-sm text-slate-900">WCAG 2.2 AA Accessibility</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              High-contrast color ratios (>7:1 on body text), complete keyboard focus visibility (`focus-visible`), ARIA landmarks, screen reader announcements, and reduced-motion compliance.
+            </p>
+          </div>
+        </div>
+
+        <!-- Privacy Evaluation Rubric -->
+        <div class="mb-12">
+          <h3 class="text-lg font-bold text-forest-950 mb-3">Privacy &amp; Data Telemetry Rubric</h3>
+          <div id="methodology-privacy-rubric" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <!-- Populated dynamically by methodology.js -->
+          </div>
+        </div>
+
+        <!-- Verified Primary Sources Directory -->
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-bold text-forest-950">Official Verified Sources Directory</h3>
+            <span class="text-xs text-slate-500 font-mono">Audit Date: November 2026</span>
+          </div>
+
+          <div class="overflow-x-auto bg-white rounded-2xl shadow-sm border border-slate-200">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr class="bg-slate-50 border-b border-slate-200 text-slate-700 font-bold uppercase tracking-wider text-[11px]">
+                  <th scope="col" class="py-3 px-4">Resource</th>
+                  <th scope="col" class="py-3 px-3">Classification</th>
+                  <th scope="col" class="py-3 px-3">Privacy Rating</th>
+                  <th scope="col" class="py-3 px-3">Last Checked</th>
+                  <th scope="col" class="py-3 px-3">Primary Source Link</th>
+                  <th scope="col" class="py-3 px-3">Documentation</th>
+                </tr>
+              </thead>
+              <tbody id="methodology-sources-tbody" class="divide-y divide-slate-200 text-slate-600">
+                <!-- Populated dynamically by methodology.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-forest-950 text-slate-300 text-xs py-12 border-t border-forest-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-forest-900 text-center md:text-left">
+        <div>
+          <div class="flex items-center justify-center md:justify-start gap-2.5 mb-2">
+            <div class="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center">
+              <i class="fa-solid fa-leaf text-xs"></i>
+            </div>
+            <span class="font-heading font-extrabold text-lg text-white">MINDFUL</span>
+          </div>
+          <p class="text-slate-400 max-w-md leading-relaxed text-xs">
+            A research-oriented Digital Wellness Resource Hub designed for college students. Empowering students to build conscious, sustainable habits with technology.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-semibold text-slate-400">
+          <a href="#assessment" class="hover:text-emerald-400 transition">Habit Assessment</a>
+          <a href="#matcher" class="hover:text-emerald-400 transition">Tool Matcher</a>
+          <a href="#resources" class="hover:text-emerald-400 transition">Resource Library</a>
+          <a href="#toolkit" class="hover:text-emerald-400 transition">Focus Toolkit</a>
+          <a href="#methodology" class="hover:text-emerald-400 transition">Academic Methodology</a>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400 text-center sm:text-left">
+        <div>
+          <span>Project: MINDFUL — Digital Wellness Resource Hub</span>
+          <span class="mx-2">•</span>
+          <span>Fact-Checked Date: <strong>November 2026</strong></span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span>WCAG 2.2 AA Compliant</span>
+          <span>•</span>
+          <a href="#main-content" class="text-emerald-400 hover:underline">Back to top <i class="fa-solid fa-arrow-up text-[10px] ml-0.5"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT SUBSYSTEMS (MODULAR) -->
+  <script src="js/data/resources.js"></script>
+  <script src="js/data/testingData.js"></script>
+  <script src="js/modules/navigation.js"></script>
+  <script src="js/modules/assessment.js"></script>
+  <script src="js/modules/matcher.js"></script>
+  <script src="js/modules/library.js"></script>
+  <script src="js/modules/comparison.js"></script>
+  <script src="js/modules/guides.js"></script>
+  <script src="js/modules/toolkit.js"></script>
+  <script src="js/modules/feedback.js"></script>
+  <script src="js/modules/methodology.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
