@@ -82,26 +82,27 @@
       </a>
 
       <!-- Desktop Navigation Menu -->
-      <nav class="hidden xl:flex items-center gap-6 text-xs font-semibold text-slate-600" aria-label="Main Navigation">
-        <a href="#assessment" class="desktop-nav-link hover:text-forest-800 transition-colors">Habit Assessment</a>
-        <a href="#matcher" class="desktop-nav-link hover:text-forest-800 transition-colors">Tool Matcher</a>
-        <a href="#resources" class="desktop-nav-link hover:text-forest-800 transition-colors">Resource Library</a>
-        <a href="#comparison" class="desktop-nav-link hover:text-forest-800 transition-colors">Comparison Matrix</a>
-        <a href="#guides" class="desktop-nav-link hover:text-forest-800 transition-colors">Setup Guides</a>
-        <a href="#toolkit" class="desktop-nav-link hover:text-forest-800 transition-colors">Wellness Toolkit</a>
-        <a href="#feedback" class="desktop-nav-link hover:text-forest-800 transition-colors">Usability Tests</a>
-        <a href="#methodology" class="desktop-nav-link hover:text-forest-800 transition-colors">Research</a>
+      <nav class="hidden lg:flex items-center gap-2 xl:gap-3 text-xs font-semibold text-slate-600" aria-label="Main Navigation">
+        <a href="#assessment" class="px-2.5 py-1.5 rounded-lg hover:text-forest-800 hover:bg-forest-50/70 transition-all whitespace-nowrap">Assessment</a>
+        <a href="#matcher" class="px-2.5 py-1.5 rounded-lg hover:text-forest-800 hover:bg-forest-50/70 transition-all whitespace-nowrap">Tool Matcher</a>
+        <a href="#resources" class="px-2.5 py-1.5 rounded-lg hover:text-forest-800 hover:bg-forest-50/70 transition-all whitespace-nowrap">Resources</a>
+        <a href="#comparison" class="px-2.5 py-1.5 rounded-lg hover:text-forest-800 hover:bg-forest-50/70 transition-all whitespace-nowrap">Comparison</a>
+        <a href="#guides" class="px-2.5 py-1.5 rounded-lg hover:text-forest-800 hover:bg-forest-50/70 transition-all whitespace-nowrap">Guides</a>
+        <a href="#meditation" class="px-2.5 py-1.5 rounded-lg hover:text-forest-800 hover:bg-forest-50/70 transition-all whitespace-nowrap">Meditation</a>
+        <a href="#toolkit" class="px-2.5 py-1.5 rounded-lg hover:text-forest-800 hover:bg-forest-50/70 transition-all whitespace-nowrap">Toolkit</a>
+        <a href="#feedback" class="px-2.5 py-1.5 rounded-lg hover:text-forest-800 hover:bg-forest-50/70 transition-all whitespace-nowrap">Usability</a>
+        <a href="#methodology" class="px-2.5 py-1.5 rounded-lg hover:text-forest-800 hover:bg-forest-50/70 transition-all whitespace-nowrap">Research</a>
       </nav>
 
       <!-- Header Action Buttons -->
       <div class="flex items-center gap-2 sm:gap-3">
-        <a href="#assessment" class="hidden sm:inline-flex items-center gap-1.5 bg-forest-800 hover:bg-forest-900 text-white text-xs font-semibold px-4 py-2 rounded-xl shadow-xs transition-all">
+        <a href="#assessment" class="hidden sm:inline-flex items-center gap-1.5 bg-forest-800 hover:bg-forest-900 text-white text-xs font-semibold px-4 py-2 rounded-xl shadow-xs transition-all whitespace-nowrap">
           <i class="fa-solid fa-clipboard-check text-[11px]"></i>
           <span>Self-Assessment</span>
         </a>
 
         <!-- Mobile Menu Toggle Button -->
-        <button id="mobile-menu-btn" class="xl:hidden p-2.5 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-100 transition" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu-drawer">
+        <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-100 transition" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu-drawer">
           <i class="fa-solid fa-bars text-base"></i>
         </button>
       </div>
@@ -109,8 +110,8 @@
   </header>
 
   <!-- MOBILE NAVIGATION DRAWER (ACCESSIBLE) -->
-  <div id="mobile-menu-backdrop" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-50 hidden opacity-0 transition-opacity duration-300 xl:hidden" aria-hidden="true"></div>
-  <aside id="mobile-menu-drawer" class="fixed top-0 left-0 bottom-0 w-72 max-w-[85vw] bg-white z-50 shadow-2xl p-6 flex flex-col justify-between transform -translate-x-full transition-transform duration-300 ease-in-out xl:hidden" aria-label="Mobile Navigation Drawer">
+  <div id="mobile-menu-backdrop" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-50 hidden opacity-0 transition-opacity duration-300 lg:hidden" aria-hidden="true"></div>
+  <aside id="mobile-menu-drawer" class="fixed top-0 left-0 bottom-0 w-72 max-w-[85vw] bg-white z-50 shadow-2xl p-6 flex flex-col justify-between transform -translate-x-full transition-transform duration-300 ease-in-out lg:hidden" aria-label="Mobile Navigation Drawer">
     <div>
       <div class="flex items-center justify-between pb-5 border-b border-slate-100 mb-6">
         <div class="flex items-center gap-2.5">
@@ -144,6 +145,10 @@
         <a href="#guides" class="mobile-nav-link flex items-center gap-3 p-2.5 rounded-xl hover:bg-forest-50 hover:text-forest-800 transition">
           <i class="fa-solid fa-graduation-cap text-forest-700 w-5"></i>
           <span>Setup Guides</span>
+        </a>
+        <a href="#meditation" class="mobile-nav-link flex items-center gap-3 p-2.5 rounded-xl hover:bg-forest-50 hover:text-forest-800 transition">
+          <i class="fa-solid fa-spa text-forest-700 w-5"></i>
+          <span>Meditation & Vipassana</span>
         </a>
         <a href="#toolkit" class="mobile-nav-link flex items-center gap-3 p-2.5 rounded-xl hover:bg-forest-50 hover:text-forest-800 transition">
           <i class="fa-solid fa-toolbox text-forest-700 w-5"></i>
@@ -982,6 +987,292 @@
 
 
     <!-- ======================================================== -->
+    <!-- SECTION: MEDITATION & VIPASSANA -->
+    <!-- ======================================================== -->
+    <section id="meditation" class="py-16 sm:py-24 bg-white border-t border-b border-[#e6e4dc]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="badge badge-category uppercase font-bold tracking-wider mb-2 inline-flex items-center gap-1.5 text-forest-800 bg-forest-50 px-3 py-1 rounded-full text-xs">
+            <i class="fa-solid fa-spa text-forest-600"></i> Mindful Mental Health & Clarity
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-forest-950 tracking-tight">
+            Meditation & Vipassana Practice Hub
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
+            Cultivate sustained attention, emotional equilibrium, and cognitive clarity. Explore the neurobiology of meditation, freely accessible certified courses, and guided Vipassana discourses.
+          </p>
+        </div>
+
+        <!-- 1. ARTICLE: THE SCIENCE & BENEFITS OF MEDITATION -->
+        <article class="bg-gradient-to-br from-forest-50/60 via-white to-sage-50/40 rounded-3xl border border-forest-200/60 p-6 sm:p-10 shadow-xs mb-16">
+          <div class="flex flex-wrap items-center gap-2 mb-4">
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider bg-forest-800 text-white">Research Article</span>
+            <span class="text-xs text-slate-500">• 6 min read • Peer-Reviewed Neuroscience Backing</span>
+          </div>
+
+          <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-forest-950 mb-4">
+            Cultivating Calm in the Age of Constant Interruption: The Science & Benefits of Meditation
+          </h3>
+
+          <div class="prose max-w-none text-slate-700 text-sm sm:text-base leading-relaxed space-y-4">
+            <p>
+              In modern academic and digital environments, students encounter an unending stream of notifications, algorithmic feeds, and context switching. This perpetual state of hypervigilance strains the brain's executive control network and over-activates the <strong>Default Mode Network (DMN)</strong>—the neural circuitry tied to mind-wandering, rumination, and stress.
+            </p>
+            <p>
+              Meditation is not about suppressing thoughts or forcing an empty mind; it is an evidence-backed cognitive training methodology. Through regular contemplative practice, practitioners train metacognitive awareness—the capacity to observe thoughts, impulses, and physical sensations without immediate emotional reactivity.
+            </p>
+
+            <!-- Key Benefits Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 my-6 border-t border-b border-forest-100 pb-6">
+              <div class="bg-white/80 backdrop-blur-xs p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+                <div class="w-10 h-10 rounded-xl bg-forest-100 text-forest-800 flex items-center justify-center font-bold text-lg mb-3">
+                  <i class="fa-solid fa-brain"></i>
+                </div>
+                <h4 class="font-bold text-forest-950 text-base mb-1.5">Neuroplasticity & Gray Matter</h4>
+                <p class="text-xs sm:text-sm text-slate-600 leading-normal">
+                  MRI research shows increased cortical thickness in the prefrontal cortex and hippocampus, alongside volumetric down-regulation of the amygdala, reducing biological stress responses.
+                </p>
+              </div>
+
+              <div class="bg-white/80 backdrop-blur-xs p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-lg mb-3">
+                  <i class="fa-solid fa-bullseye"></i>
+                </div>
+                <h4 class="font-bold text-forest-950 text-base mb-1.5">Deep Focus & Sustained Attention</h4>
+                <p class="text-xs sm:text-sm text-slate-600 leading-normal">
+                  Regular practice counteracts dopamine-induced fragmentation, improving working memory retention, attentional stamina, and cognitive flexibility during high-demand study sprints.
+                </p>
+              </div>
+
+              <div class="bg-white/80 backdrop-blur-xs p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+                <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-800 flex items-center justify-center font-bold text-lg mb-3">
+                  <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                <h4 class="font-bold text-forest-950 text-base mb-1.5">Emotional Regulation & Vagal Tone</h4>
+                <p class="text-xs sm:text-sm text-slate-600 leading-normal">
+                  Enhances parasympathetic nervous system activation (vagal nerve stimulation), lowering resting heart rates, mitigating exam anxiety, and promoting regenerative sleep cycles.
+                </p>
+              </div>
+            </div>
+
+            <!-- Vipassana Core Insight -->
+            <div class="bg-forest-900 text-white rounded-2xl p-6 sm:p-7 relative overflow-hidden">
+              <div class="relative z-10">
+                <span class="inline-block text-[11px] font-mono tracking-widest text-emerald-300 uppercase mb-1">Traditional Practice</span>
+                <h4 class="text-lg sm:text-xl font-bold font-heading mb-2">What is Vipassana Meditation?</h4>
+                <p class="text-xs sm:text-sm text-emerald-100 leading-relaxed max-w-3xl">
+                  <strong>Vipassana</strong>, which literally translates to "seeing things as they really are," is one of India's most ancient meditation techniques, rediscovered and systematized by Gautama the Buddha over 2,500 years ago. Unlike concentration-only practices (Samatha), Vipassana utilizes systematic bodily sensation scanning to cultivate profound equanimity (<em>Upekkha</em>), dissolving subconscious patterns of craving and aversion.
+                </p>
+              </div>
+              <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-emerald-800/30 rounded-full blur-2xl pointer-events-none"></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. FREELY AVAILABLE MEDITATION COURSES -->
+        <div class="mb-16">
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-3">
+            <div>
+              <span class="badge badge-category uppercase font-bold tracking-wider mb-1 text-forest-800 text-xs">Zero-Cost Learning Paths</span>
+              <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-forest-950">
+                100% Free Meditation Courses & Platforms
+              </h3>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-500 max-w-md">
+              No paywalls, corporate subscriptions, or hidden trials. Accessible lifelong wellness education for students worldwide.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Course 1 -->
+            <div class="card-wellness p-6 flex flex-col justify-between hover:border-forest-400 transition-all">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="px-2.5 py-1 rounded text-[11px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800">Global Non-Profit</span>
+                  <span class="text-xs text-slate-400 font-mono"><i class="fa-solid fa-gift mr-1"></i>Free / Dana</span>
+                </div>
+                <h4 class="font-heading font-bold text-lg text-slate-900 mb-2">
+                  Dhamma.org — 10-Day Residential Vipassana
+                </h4>
+                <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+                  The official worldwide organization teaching Vipassana as taught by S.N. Goenka. Complete 10-day intensive residential courses with room and board provided entirely free of charge at 380+ centers globally.
+                </p>
+                <ul class="text-xs text-slate-500 space-y-1.5 mb-6">
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-xs"></i> 380+ permanent centers worldwide</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-xs"></i> Systematic step-by-step instruction</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-xs"></i> 100% financed by past student donations</li>
+                </ul>
+              </div>
+              <a href="https://www.dhamma.org" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 bg-forest-800 hover:bg-forest-900 text-white font-semibold text-xs py-2.5 px-4 rounded-xl transition">
+                <span>Explore Dhamma Centers</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </a>
+            </div>
+
+            <!-- Course 2 -->
+            <div class="card-wellness p-6 flex flex-col justify-between hover:border-forest-400 transition-all">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="px-2.5 py-1 rounded text-[11px] font-bold uppercase tracking-wider bg-blue-100 text-blue-800">Academic / EdX</span>
+                  <span class="text-xs text-slate-400 font-mono"><i class="fa-solid fa-certificate mr-1"></i>Free Audit</span>
+                </div>
+                <h4 class="font-heading font-bold text-lg text-slate-900 mb-2">
+                  Science of Happiness — UC Berkeley (GGSC)
+                </h4>
+                <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+                  Offered by UC Berkeley's Greater Good Science Center. A celebrated 8-week course exploring positive psychology, mindfulness exercises, and the neurological root of compassion and mental stamina.
+                </p>
+                <ul class="text-xs text-slate-500 space-y-1.5 mb-6">
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-xs"></i> Self-paced academic curriculum</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-xs"></i> Science-backed meditation drills</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-xs"></i> Free full audit access</li>
+                </ul>
+              </div>
+              <a href="https://www.edx.org/learn/happiness/university-of-california-berkeley-the-science-of-happiness" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-900 text-white font-semibold text-xs py-2.5 px-4 rounded-xl transition">
+                <span>View Course on edX</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </a>
+            </div>
+
+            <!-- Course 3 -->
+            <div class="card-wellness p-6 flex flex-col justify-between hover:border-forest-400 transition-all">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="px-2.5 py-1 rounded text-[11px] font-bold uppercase tracking-wider bg-amber-100 text-amber-800">Open-Access MBSR</span>
+                  <span class="text-xs text-slate-400 font-mono"><i class="fa-solid fa-universal-access mr-1"></i>Public Domain</span>
+                </div>
+                <h4 class="font-heading font-bold text-lg text-slate-900 mb-2">
+                  Palouse Mindfulness (8-Week MBSR)
+                </h4>
+                <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+                  A 100% free online version of Jon Kabat-Zinn’s clinical Mindfulness-Based Stress Reduction (MBSR) program, created by certified instructor Dave Potter. Includes readings, videos, and daily practices.
+                </p>
+                <ul class="text-xs text-slate-500 space-y-1.5 mb-6">
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-xs"></i> No registration or payment required</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-xs"></i> Comprehensive audio guided sessions</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-xs"></i> Free certificate of completion</li>
+                </ul>
+              </div>
+              <a href="https://palousemindfulness.com" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 bg-forest-800 hover:bg-forest-900 text-white font-semibold text-xs py-2.5 px-4 rounded-xl transition">
+                <span>Start Free MBSR Program</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. VIPASSANA MEDITATION VIDEOS & GUIDED DISCOURSES -->
+        <div>
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-3">
+            <div>
+              <span class="badge badge-category uppercase font-bold tracking-wider mb-1 text-forest-800 text-xs">Curated Video Library</span>
+              <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-forest-950">
+                Vipassana Meditation Videos & Teachings
+              </h3>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-500 max-w-md">
+              Watch authentic documentary insights, discourse fundamentals, and practical instructions directly on this page.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Video 1: S.N. Goenka - Hill of Dhamma Documentary & Technique -->
+            <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs flex flex-col justify-between">
+              <div>
+                <div class="relative w-full pb-[56.25%] bg-slate-900">
+                  <iframe 
+                    class="absolute top-0 left-0 w-full h-full border-0"
+                    src="https://www.youtube-nocookie.com/embed/bof7KcQik8I" 
+                    title="Hill of Dhamma - Vipassana Meditation"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="p-5">
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-forest-700 bg-forest-50 px-2 py-0.5 rounded">Documentary & Technique</span>
+                  <h4 class="font-heading font-bold text-base text-slate-900 mt-2 mb-1.5">
+                    Hill of Dhamma — Vipassana Meditation
+                  </h4>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Official documentary on the art of Vipassana meditation as taught by S.N. Goenka at Dhamma Giri, Igatpuri. Explores the 10-day course discipline and pure mental purification.
+                  </p>
+                </div>
+              </div>
+              <div class="px-5 pb-5 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-mono">
+                <span><i class="fa-solid fa-film mr-1"></i>Official Video</span>
+                <span class="text-forest-700 font-semibold">Vipassana Research Inst.</span>
+              </div>
+            </div>
+
+            <!-- Video 2: Doing Time, Doing Vipassana (Award-Winning Documentary) -->
+            <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs flex flex-col justify-between">
+              <div>
+                <div class="relative w-full pb-[56.25%] bg-slate-900">
+                  <iframe 
+                    class="absolute top-0 left-0 w-full h-full border-0"
+                    src="https://www.youtube-nocookie.com/embed/WkxSyv5R1sg" 
+                    title="Doing Time, Doing Vipassana Documentary"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="p-5">
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Documentary Feature</span>
+                  <h4 class="font-heading font-bold text-base text-slate-900 mt-2 mb-1.5">
+                    Doing Time, Doing Vipassana (Full Film)
+                  </h4>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    The acclaimed documentary showing the transformative impact of 10-day Vipassana meditation courses inside Tihar Jail, proving meditation's profound psychological rehabilitation power.
+                  </p>
+                </div>
+              </div>
+              <div class="px-5 pb-5 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-mono">
+                <span><i class="fa-solid fa-award mr-1"></i>Award Winner</span>
+                <span class="text-forest-700 font-semibold">Tihar Prison Study</span>
+              </div>
+            </div>
+
+            <!-- Video 3: Practical Anapana Breathing Guide -->
+            <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs flex flex-col justify-between">
+              <div>
+                <div class="relative w-full pb-[56.25%] bg-slate-900">
+                  <iframe 
+                    class="absolute top-0 left-0 w-full h-full border-0"
+                    src="https://www.youtube-nocookie.com/embed/aYJmFdeBfVQ" 
+                    title="Anapana Meditation for All - Respiration Awareness by S.N. Goenka"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+                <div class="p-5">
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-2 py-0.5 rounded">Guided Practice Session</span>
+                  <h4 class="font-heading font-bold text-base text-slate-900 mt-2 mb-1.5">
+                    Anapana Meditation for All (with Subtitles)
+                  </h4>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Official guided Anapana meditation practice session led by S.N. Goenka. Learn to focus your awareness on incoming and outgoing natural breath to calm and center the mind.
+                  </p>
+                </div>
+              </div>
+              <div class="px-5 pb-5 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-mono">
+                <span><i class="fa-solid fa-headphones mr-1"></i>Guided Practice</span>
+                <span class="text-forest-700 font-semibold">S.N. Goenka (VRI)</span>
+              </div>
+            </div>
+          </div>
+                <span class="text-forest-700 font-semibold">10-15 Min Focus</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
     <!-- SECTION G: DIGITAL WELLNESS TOOLKIT -->
     <!-- ======================================================== -->
     <section id="toolkit" class="py-16 sm:py-20 bg-slate-50/70 border-t border-b border-[#e6e4dc]">
@@ -1449,7 +1740,8 @@
         <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-semibold text-slate-400">
           <a href="#assessment" class="hover:text-emerald-400 transition">Habit Assessment</a>
           <a href="#matcher" class="hover:text-emerald-400 transition">Tool Matcher</a>
-          <a href="#resources" class="hover:text-emerald-400 transition">Resource Library</a>
+          <a href="#guides" class="hover:text-emerald-400 transition">Setup Guides</a>
+          <a href="#meditation" class="hover:text-emerald-400 transition">Meditation & Vipassana</a>
           <a href="#toolkit" class="hover:text-emerald-400 transition">Focus Toolkit</a>
           <a href="#methodology" class="hover:text-emerald-400 transition">Academic Methodology</a>
         </div>
