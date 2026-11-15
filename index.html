@@ -90,7 +90,7 @@
         <a href="#guides" class="px-2.5 py-1.5 rounded-lg hover:text-forest-800 hover:bg-forest-50/70 transition-all whitespace-nowrap">Guides</a>
         <a href="#meditation" class="px-2.5 py-1.5 rounded-lg hover:text-forest-800 hover:bg-forest-50/70 transition-all whitespace-nowrap">Meditation</a>
         <a href="#toolkit" class="px-2.5 py-1.5 rounded-lg hover:text-forest-800 hover:bg-forest-50/70 transition-all whitespace-nowrap">Toolkit</a>
-        <a href="#feedback" class="px-2.5 py-1.5 rounded-lg hover:text-forest-800 hover:bg-forest-50/70 transition-all whitespace-nowrap">Usability</a>
+        <a href="#feedback" class="px-2.5 py-1.5 rounded-lg hover:text-forest-800 hover:bg-forest-50/70 transition-all whitespace-nowrap">Feedback</a>
         <a href="#methodology" class="px-2.5 py-1.5 rounded-lg hover:text-forest-800 hover:bg-forest-50/70 transition-all whitespace-nowrap">Research</a>
       </nav>
 
@@ -156,7 +156,7 @@
         </a>
         <a href="#feedback" class="mobile-nav-link flex items-center gap-3 p-2.5 rounded-xl hover:bg-forest-50 hover:text-forest-800 transition">
           <i class="fa-solid fa-comments text-forest-700 w-5"></i>
-          <span>Usability Tests</span>
+          <span>Feedback</span>
         </a>
         <a href="#methodology" class="mobile-nav-link flex items-center gap-3 p-2.5 rounded-xl hover:bg-forest-50 hover:text-forest-800 transition">
           <i class="fa-solid fa-microscope text-forest-700 w-5"></i>
@@ -1486,14 +1486,13 @@
       <div class="max-w-5xl mx-auto px-4 sm:px-6">
         
         <div class="text-center max-w-3xl mx-auto mb-10">
-          <span class="badge badge-category uppercase font-bold tracking-wider mb-1">Empirical Iteration</span>
+          <span class="badge badge-category uppercase font-bold tracking-wider mb-1">Community Reviews</span>
           <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-forest-950">
-            Student Feedback &amp; Usability Testing Audit
+            Student Feedback &amp; Reviews
           </h2>
           <p class="text-xs sm:text-sm text-slate-600 mt-2">
-            Documenting genuine usability trials with college participants, problem identification, implemented revisions, and an active local testing feedback queue.
+            Share your experience with digital wellness tools and explore reviews submitted by students.
           </p>
-          <div id="supabase-status-badge" class="mt-3 flex justify-center"></div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
@@ -1592,7 +1591,7 @@
             <!-- Success Persistence Callout -->
             <div id="feedback-success-banner" class="hidden mt-4 p-3.5 bg-emerald-50 text-emerald-900 border border-emerald-200 rounded-xl text-xs flex items-start gap-2">
               <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5"></i>
-              <span id="feedback-success-text"><strong>Saved:</strong> Your testing submission has been recorded.</span>
+              <span id="feedback-success-text"><strong>Feedback Published Anonymously</strong></span>
             </div>
           </div>
 
@@ -1624,36 +1623,13 @@
 
             <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
               <span class="flex items-center gap-1"><i class="fa-solid fa-shield-halved text-forest-700"></i> Zero IP or telemetry logging</span>
-              <button id="btn-open-supabase-modal" class="text-forest-800 font-semibold hover:underline inline-flex items-center gap-1 cursor-pointer">
-                <i class="fa-solid fa-database"></i> Supabase Backend Setup
-              </button>
+              <span class="text-forest-800 font-semibold text-[11px]"><i class="fa-solid fa-lock text-forest-700 mr-1"></i> Anonymous &amp; Encrypted</span>
             </div>
           </div>
 
         </div>
 
-        <!-- FORMAL REVISION LOG -->
-        <div class="mt-12 pt-8 border-t border-slate-200">
-          <div class="flex items-center justify-between mb-6">
-            <div>
-              <span class="badge badge-free text-[10px]">Academic Testing Audit</span>
-              <h3 class="text-xl font-heading font-extrabold text-forest-950 mt-1">Completed Student Usability Testing &amp; Revision Log</h3>
-              <p class="text-xs text-slate-600 mt-0.5">Four university student trials conducted between October and November 2026.</p>
-            </div>
-            <span class="text-xs font-mono font-bold text-slate-400">4 Closed Issues</span>
-          </div>
-
-          <div id="usability-revision-log" class="space-y-4">
-            <!-- Rendered dynamically from testingData.js -->
-          </div>
-
-          <!-- Planned Testing Distinction -->
-          <div class="mt-6 p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 space-y-1">
-            <span class="font-bold text-slate-900 block"><i class="fa-solid fa-calendar-days text-forest-700 mr-1.5"></i> Planned Future Usability Testing (Phase 3 — Spring 2027 Cohort):</span>
-            <p>An expanded trial with 25 undergraduate students across STEM, Humanities, and Fine Arts to measure longitudinal 14-day screen time reduction using the Pittsburgh Sleep Quality Index.</p>
-          </div>
         </div>
-
       </div>
     </section>
 
@@ -1744,87 +1720,7 @@
     </section>
 
   
-    <!-- SUPABASE BACKEND CONFIGURATION & SQL MODAL -->
-    <div id="supabase-config-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="supabase-modal-title">
-      <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl border border-slate-200 relative">
-        <button id="btn-close-supabase-modal" class="absolute top-5 right-5 p-2 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition" aria-label="Close Supabase modal">
-          <i class="fa-solid fa-xmark text-lg"></i>
-        </button>
-
-        <div class="flex items-center gap-3 mb-4 pb-3 border-b border-slate-100">
-          <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center text-xl">
-            <i class="fa-solid fa-database"></i>
-          </div>
-          <div>
-            <h3 id="supabase-modal-title" class="text-xl font-bold text-slate-900">Supabase Backend Configuration</h3>
-            <p class="text-xs text-slate-500">Connect a real Supabase PostgreSQL database for anonymous feedback persistence.</p>
-          </div>
-        </div>
-
-        <div class="space-y-6 text-xs sm:text-sm">
-          <!-- Credentials Form -->
-          <form id="supabase-credentials-form" class="space-y-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
-            <h4 class="font-bold text-slate-800 text-xs uppercase tracking-wider">Project Credentials</h4>
-            <div>
-              <label for="sb-input-url" class="block font-semibold text-slate-700 mb-1">Supabase Project URL</label>
-              <input type="url" id="sb-input-url" required placeholder="https://your-project-id.supabase.co" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-xs font-mono focus:border-forest-700 focus:ring-1 focus:ring-forest-700 bg-white">
-            </div>
-            <div>
-              <label for="sb-input-key" class="block font-semibold text-slate-700 mb-1">Supabase Anon Public API Key</label>
-              <input type="password" id="sb-input-key" required placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." class="w-full border border-slate-300 rounded-lg px-3 py-2 text-xs font-mono focus:border-forest-700 focus:ring-1 focus:ring-forest-700 bg-white">
-            </div>
-            <div id="sb-test-message" class="text-xs hidden p-2 rounded-lg bg-white border border-slate-200"></div>
-            <div class="flex items-center justify-between pt-2">
-              <button type="button" id="btn-reset-supabase" class="text-xs text-rose-600 hover:text-rose-800 font-semibold cursor-pointer">
-                Revert to Local Demo
-              </button>
-              <button type="submit" class="bg-forest-800 hover:bg-forest-900 text-white font-semibold text-xs px-4 py-2 rounded-lg shadow-2xs transition flex items-center gap-1.5 cursor-pointer">
-                <i class="fa-solid fa-plug"></i> Test & Save Connection
-              </button>
-            </div>
-          </form>
-
-          <!-- SQL Schema Instructions -->
-          <div class="space-y-2">
-            <div class="flex items-center justify-between">
-              <h4 class="font-bold text-slate-800 text-xs uppercase tracking-wider">Supabase SQL Schema (Run in Supabase SQL Editor)</h4>
-              <button type="button" onclick="navigator.clipboard.writeText(document.getElementById('sb-sql-snippet').textContent).then(() => alert('SQL copied to clipboard!'))" class="text-[11px] font-semibold text-forest-800 hover:underline inline-flex items-center gap-1 cursor-pointer">
-                <i class="fa-solid fa-copy"></i> Copy SQL
-              </button>
-            </div>
-            <pre class="p-3 bg-slate-900 text-emerald-400 rounded-xl font-mono text-[11px] overflow-x-auto max-h-48 border border-slate-800" id="sb-sql-snippet">-- 1. Create table for anonymous feedback
-CREATE TABLE IF NOT EXISTS public.anonymous_feedback (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
-    is_anonymous BOOLEAN DEFAULT true NOT NULL,
-    student_major TEXT DEFAULT 'Anonymous Student',
-    resource_tested TEXT NOT NULL,
-    task_completed TEXT NOT NULL,
-    ease_rating INTEGER NOT NULL CHECK (ease_rating BETWEEN 1 AND 5),
-    problems_encountered TEXT,
-    suggestions TEXT NOT NULL
-);
-
--- 2. Enable Row Level Security (RLS)
-ALTER TABLE public.anonymous_feedback ENABLE ROW LEVEL SECURITY;
-
--- 3. Policy: Anyone can insert anonymous feedback (Public)
-CREATE POLICY "Allow public anonymous submissions"
-    ON public.anonymous_feedback
-    FOR INSERT TO anon, authenticated WITH CHECK (true);
-
--- 4. Policy: Anyone can read feedback (Public)
-CREATE POLICY "Allow public reading of feedback"
-    ON public.anonymous_feedback
-    FOR SELECT TO anon, authenticated USING (true);</pre>
-            <p class="text-[11px] text-slate-500">
-              The full schema file with index and seed data is available at <code class="font-mono bg-slate-100 px-1 py-0.5 rounded text-slate-700">supabase/schema.sql</code>.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
+    </main>
 
   <!-- FOOTER -->
   <footer class="bg-forest-950 text-slate-300 text-xs py-12 border-t border-forest-900">
