@@ -264,6 +264,129 @@ input[type="range"] {
   }
 }
 
+/* GitHub-Style Mindful Activity Heatmap */
+.heatmap-card {
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.hm-cell {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  border: 1px solid rgba(20, 62, 46, 0.06);
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, outline 0.12s ease;
+  padding: 0;
+  margin: 0;
+  display: block;
+  outline: none;
+}
+
+.hm-cell:hover, .hm-cell:focus-visible {
+  transform: scale(1.35);
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  outline: 1.5px solid var(--color-forest-900);
+}
+
+.hm-cell-legend {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+  border: 1px solid rgba(20, 62, 46, 0.08);
+}
+
+/* Activity Levels - Forest & Sage Design Palette */
+.hm-lvl-future {
+  background-color: transparent;
+  border: 1px dashed #e2e8f0;
+  cursor: default;
+  pointer-events: none;
+}
+
+.hm-lvl-0 {
+  background-color: #ebedf0;
+}
+
+.hm-lvl-1 {
+  background-color: #b7d5c2;
+}
+
+.hm-lvl-2 {
+  background-color: #6fa883;
+}
+
+.hm-lvl-3 {
+  background-color: #2d7854;
+}
+
+.hm-lvl-4 {
+  background-color: #143e2e;
+}
+
+/* Today indicator */
+.hm-today {
+  outline: 2px solid #0f2d20;
+  outline-offset: 1px;
+}
+
+/* Selected cell state */
+.hm-selected {
+  outline: 2.5px solid #2563eb !important;
+  outline-offset: 1.5px !important;
+  transform: scale(1.3);
+  z-index: 12;
+}
+
+/* Floating interactive tooltip */
+.hm-tooltip {
+  position: absolute;
+  pointer-events: none;
+  background-color: #0a1f16;
+  color: #ffffff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  line-height: 1.3;
+  z-index: 999999;
+  transform: translate(-50%, -100%);
+  margin-top: -6px;
+  white-space: nowrap;
+  box-shadow: 0 10px 20px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.2);
+  border: 1px solid #1b533e;
+  transition: opacity 0.12s ease;
+}
+
+.hm-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #0a1f16 transparent transparent transparent;
+}
+
+.heatmap-scroll-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.heatmap-scroll-wrapper::-webkit-scrollbar-track {
+  background: #f1f5f3;
+  border-radius: 9999px;
+}
+
+.heatmap-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: #c2d7c9;
+  border-radius: 9999px;
+}
+
+.heatmap-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #93b79d;
+}
+
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   html {

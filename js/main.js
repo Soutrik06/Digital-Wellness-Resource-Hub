@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize all modular subsystems
   try {
     if (typeof initNavigation === 'function') initNavigation();
+    if (typeof initHeatmap === 'function') initHeatmap();
     if (typeof initAssessment === 'function') initAssessment();
     if (typeof initMatcher === 'function') initMatcher();
     if (typeof initLibrary === 'function') initLibrary();
