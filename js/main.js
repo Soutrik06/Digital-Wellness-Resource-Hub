@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   try {
     if (typeof initNavigation === 'function') initNavigation();
     if (typeof initDuoCompanion === 'function') initDuoCompanion();
+    if (typeof initBirdGuide === 'function') initBirdGuide();
     if (typeof initHeatmap === 'function') initHeatmap();
     if (typeof initAssessment === 'function') initAssessment();
     if (typeof initMatcher === 'function') initMatcher();
