@@ -146,7 +146,7 @@ function renderLibraryCards() {
     if (item.costType === 'paid') costBadge = 'badge-paid';
 
     return `
-      <article class="card-wellness p-6 flex flex-col justify-between" id="resource-card-${item.id}">
+      <article class="card-wellness card-joyful-3d p-6 flex flex-col justify-between group" id="resource-card-${item.id}">
         <div>
           <div class="flex items-start justify-between gap-2 mb-2">
             <div>

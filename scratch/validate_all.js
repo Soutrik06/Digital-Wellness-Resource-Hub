@@ -9,6 +9,7 @@ const jsFiles = [
   'js/config/supabase.js',
   'js/modules/navigation.js',
   'js/modules/heatmap.js',
+  'js/modules/duoCompanion.js',
   'js/modules/assessment.js',
   'js/modules/matcher.js',
   'js/modules/library.js',
@@ -36,8 +37,9 @@ console.log("\nChecking index.html structure...");
 const indexHtml = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
 
 const checks = [
+  { name: 'Duolingo mascot container exists', test: indexHtml.includes('id="duo-mascot-hero-mount"') },
+  { name: 'Duolingo script included', test: indexHtml.includes('src="js/modules/duoCompanion.js"') },
   { name: 'Heatmap container exists', test: indexHtml.includes('id="mindful-heatmap-container"') },
-  { name: 'Heatmap script included', test: indexHtml.includes('src="js/modules/heatmap.js"') },
   { name: 'Main script included', test: indexHtml.includes('src="js/main.js"') },
   { name: 'Assessment section intact', test: indexHtml.includes('id="assessment"') },
   { name: 'Hero section intact', test: indexHtml.includes('Your Digital Life') }

@@ -257,6 +257,10 @@ function initAssessment() {
     resultsContainer.classList.remove('hidden');
     resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
+    if (typeof window.duoCelebrate === 'function') {
+      window.duoCelebrate("🎉 Digital Wellness Assessment Completed! Here are your personalized next steps!");
+    }
+
     // Attach retake listener
     const retakeBtnInline = document.getElementById('assessment-retake-btn-inline');
     if (retakeBtnInline) {

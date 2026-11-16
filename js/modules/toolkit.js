@@ -92,6 +92,9 @@ function initPomodoroTimer() {
   function startTimer() {
     if (isTimerRunning) return;
     isTimerRunning = true;
+    const ringParent = document.getElementById('timer-progress-ring')?.closest('.relative');
+    if (ringParent) ringParent.classList.add('timer-running-pulse');
+    if (typeof window.showJoyfulToast === 'function') window.showJoyfulToast("⏱️", "Pomodoro Started!", "25-min focus sprint in progress. You've got this!");
     if (btnStartPause) {
       btnStartPause.innerHTML = '<i class="fa-solid fa-pause mr-1.5"></i> Pause';
       btnStartPause.classList.remove('bg-forest-800', 'hover:bg-forest-900');
@@ -116,6 +119,10 @@ function initPomodoroTimer() {
           // Announce interval completion
           announceLiveMessage("Focus interval complete! Great work. Time for a restful break.");
 
+          if (typeof window.duoCelebrate === 'function') {
+            window.duoCelebrate("🎉 Focus Sprint Complete! 25 mins of deep work unlocked. Time to relax! ☕");
+          }
+
           // Auto-advance to break
           if (completedSessions % 4 === 0) {
             setMode('longBreak');
@@ -139,6 +146,8 @@ function initPomodoroTimer() {
   function pauseTimer() {
     clearInterval(timerInterval);
     isTimerRunning = false;
+    const ringParent = document.getElementById('timer-progress-ring')?.closest('.relative');
+    if (ringParent) ringParent.classList.remove('timer-running-pulse');
     document.title = "MINDFUL — Digital Wellness Resource Hub";
     if (btnStartPause) {
       btnStartPause.innerHTML = '<i class="fa-solid fa-play mr-1.5"></i> Resume';

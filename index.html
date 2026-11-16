@@ -204,31 +204,25 @@
             Discover healthier ways to use technology. Understand your habits, reduce distractions, and build a more mindful digital routine without predatory subscriptions or cloud tracking.
           </p>
 
-          <!-- Call to Action Buttons -->
-          <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-12">
-            <a href="#assessment" class="bg-forest-800 hover:bg-forest-900 text-white font-semibold text-sm px-6 py-3.5 rounded-xl shadow-xs transition-all flex items-center gap-2">
+          <!-- Duolingo-Style 3D Tactile Call to Action Buttons -->
+          <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-8">
+            <a href="#assessment" class="btn-duo-primary px-6 py-3.5 text-sm flex items-center gap-2">
               <i class="fa-solid fa-clipboard-check"></i>
               <span>Start Self-Assessment</span>
             </a>
-            <a href="#resources" class="bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-semibold text-sm px-6 py-3.5 rounded-xl shadow-xs transition-all flex items-center gap-2">
+            <a href="#resources" class="btn-duo-secondary px-6 py-3.5 text-sm flex items-center gap-2">
               <i class="fa-solid fa-layer-group text-forest-700"></i>
               <span>Explore 13 Vetted Tools</span>
             </a>
-            <a href="#toolkit" class="bg-forest-50 hover:bg-forest-100 border border-forest-200 text-forest-900 font-semibold text-sm px-5 py-3.5 rounded-xl transition-all flex items-center gap-2">
+            <a href="#toolkit" class="btn-duo-secondary px-5 py-3.5 text-sm flex items-center gap-2">
               <i class="fa-solid fa-stopwatch text-forest-700"></i>
               <span>Focus Toolkit</span>
             </a>
           </div>
 
-          <!-- Mindful Visual Breathing Circle (SVG-Based Calm Visual) -->
-          <div class="relative max-w-xs mx-auto mb-8 flex flex-col items-center justify-center">
-            <div class="w-36 h-36 rounded-full bg-gradient-to-tr from-forest-200/50 via-sage-100 to-emerald-100 flex items-center justify-center border border-forest-200/70 shadow-inner animate-breath">
-              <div class="w-24 h-24 rounded-full bg-white flex flex-col items-center justify-center text-forest-900 shadow-sm border border-forest-100">
-                <i class="fa-solid fa-seedling text-2xl text-forest-700 mb-1"></i>
-                <span class="text-[10px] font-bold uppercase tracking-wider text-forest-800">Mindful</span>
-              </div>
-            </div>
-            <span class="text-[11px] text-slate-500 font-medium mt-2">Breathe & Reset • Attention Restoration Cadence</span>
+          <!-- Duolingo-Style Animated Mindful Mascot ("Sage the Zen Owl") & Streak Showcase -->
+          <div id="duo-mascot-hero-mount" class="w-full max-w-md mx-auto mb-6">
+            <!-- Populated dynamically with interactive SVG character, speech bubble & flame streak by duoCompanion.js -->
           </div>
 
         </div>
@@ -240,28 +234,40 @@
 
         <div class="max-w-4xl mx-auto">
 
-          <!-- 4 Curated Academic Statistics -->
+          <!-- 4 Curated Academic Statistics (Joyful 3D Cards) -->
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-left pt-6 border-t border-slate-200/80">
-            <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
-              <div class="text-forest-800 font-heading font-extrabold text-2xl">4.4 hrs</div>
+            <div class="card-joyful-3d bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs group cursor-pointer" onclick="if(window.playBubblePop) playBubblePop()">
+              <div class="text-forest-800 font-heading font-extrabold text-2xl flex items-center justify-between">
+                <span>4.4 hrs</span>
+                <i class="fa-solid fa-mobile-screen text-forest-300 group-hover:text-forest-600 transition text-sm"></i>
+              </div>
               <div class="text-xs font-semibold text-slate-800 mt-0.5">Daily Phone Average</div>
               <div class="text-[11px] text-slate-500 mt-1">Undergraduate leisure use (J. Amer. Coll. Health)</div>
             </div>
 
-            <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
-              <div class="text-forest-800 font-heading font-extrabold text-2xl">89%</div>
+            <div class="card-joyful-3d bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs group cursor-pointer" onclick="if(window.playBubblePop) playBubblePop()">
+              <div class="text-forest-800 font-heading font-extrabold text-2xl flex items-center justify-between">
+                <span>89%</span>
+                <i class="fa-solid fa-bell-slash text-forest-300 group-hover:text-forest-600 transition text-sm"></i>
+              </div>
               <div class="text-xs font-semibold text-slate-800 mt-0.5">Study Flow Derailment</div>
               <div class="text-[11px] text-slate-500 mt-1">Interrupted by notifications every 12 mins</div>
             </div>
 
-            <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
-              <div class="text-forest-800 font-heading font-extrabold text-2xl">76%</div>
+            <div class="card-joyful-3d bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs group cursor-pointer" onclick="if(window.playBubblePop) playBubblePop()">
+              <div class="text-forest-800 font-heading font-extrabold text-2xl flex items-center justify-between">
+                <span>76%</span>
+                <i class="fa-solid fa-moon text-forest-300 group-hover:text-forest-600 transition text-sm"></i>
+              </div>
               <div class="text-xs font-semibold text-slate-800 mt-0.5">Bedtime Screen Lag</div>
               <div class="text-[11px] text-slate-500 mt-1">Phone in bed extends sleep latency by 43m</div>
             </div>
 
-            <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
-              <div class="text-forest-800 font-heading font-extrabold text-2xl">100%</div>
+            <div class="card-joyful-3d bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs group cursor-pointer" onclick="if(window.playBubblePop) playBubblePop()">
+              <div class="text-forest-800 font-heading font-extrabold text-2xl flex items-center justify-between">
+                <span>100%</span>
+                <i class="fa-solid fa-shield-halved text-forest-300 group-hover:text-forest-600 transition text-sm"></i>
+              </div>
               <div class="text-xs font-semibold text-slate-800 mt-0.5">Verified Privacy Terms</div>
               <div class="text-[11px] text-slate-500 mt-1">Zero hidden subscriptions or telemetry</div>
             </div>
@@ -299,19 +305,19 @@
                 How many hours per day do you spend on recreational screen use (social media, streaming, non-academic browsing)?
               </legend>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
-                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                <label class="radio-card-joyful flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-white">
                   <input type="radio" name="assess-screentime" value="4" class="text-forest-800 focus:ring-forest-800" checked>
                   <span>Under 2 hours (Intentional & minimal leisure)</span>
                 </label>
-                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                <label class="radio-card-joyful flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-white">
                   <input type="radio" name="assess-screentime" value="3" class="text-forest-800 focus:ring-forest-800">
                   <span>2 to 4 hours (Moderate daily leisure)</span>
                 </label>
-                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                <label class="radio-card-joyful flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-white">
                   <input type="radio" name="assess-screentime" value="2" class="text-forest-800 focus:ring-forest-800">
                   <span>4 to 6 hours (High discretionary exposure)</span>
                 </label>
-                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                <label class="radio-card-joyful flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-white">
                   <input type="radio" name="assess-screentime" value="1" class="text-forest-800 focus:ring-forest-800">
                   <span>Over 6 hours (Frequent marathon doomscrolling)</span>
                 </label>
@@ -325,19 +331,19 @@
                 During a deep study or lecture session, how frequently do you open messaging, YouTube, or social media tabs?
               </legend>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
-                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                <label class="radio-card-joyful flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-white">
                   <input type="radio" name="assess-studydistract" value="4" class="text-forest-800 focus:ring-forest-800">
                   <span>Rarely / Never (I lock focus until scheduled breaks)</span>
                 </label>
-                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                <label class="radio-card-joyful flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-white">
                   <input type="radio" name="assess-studydistract" value="3" class="text-forest-800 focus:ring-forest-800" checked>
                   <span>1 to 2 times an hour when energy dips</span>
                 </label>
-                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                <label class="radio-card-joyful flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-white">
                   <input type="radio" name="assess-studydistract" value="2" class="text-forest-800 focus:ring-forest-800">
                   <span>Every 10-15 minutes (Constant split attention)</span>
                 </label>
-                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                <label class="radio-card-joyful flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-white">
                   <input type="radio" name="assess-studydistract" value="1" class="text-forest-800 focus:ring-forest-800">
                   <span>Continuously active in background or second monitor</span>
                 </label>
@@ -351,19 +357,19 @@
                 How often do you feel the urge to check your phone because of alerts, badges, or phantom vibrations?
               </legend>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
-                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                <label class="radio-card-joyful flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-white">
                   <input type="radio" name="assess-notifications" value="4" class="text-forest-800 focus:ring-forest-800">
                   <span>Rarely (Notifications are audited or silenced)</span>
                 </label>
-                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                <label class="radio-card-joyful flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-white">
                   <input type="radio" name="assess-notifications" value="3" class="text-forest-800 focus:ring-forest-800" checked>
                   <span>Occasionally for important messages or emails</span>
                 </label>
-                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                <label class="radio-card-joyful flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-white">
                   <input type="radio" name="assess-notifications" value="2" class="text-forest-800 focus:ring-forest-800">
                   <span>Frequently (Pings consistently pull me away from tasks)</span>
                 </label>
-                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                <label class="radio-card-joyful flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-white">
                   <input type="radio" name="assess-notifications" value="1" class="text-forest-800 focus:ring-forest-800">
                   <span>Constant anxiety whenever my phone is out of sight</span>
                 </label>
@@ -377,19 +383,19 @@
                 Do you use smartphones, tablets, or laptops in bed within 30 minutes of attempting to sleep?
               </legend>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
-                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                <label class="radio-card-joyful flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-white">
                   <input type="radio" name="assess-bedtime" value="4" class="text-forest-800 focus:ring-forest-800">
                   <span>Never (Devices charge outside arm's reach)</span>
                 </label>
-                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                <label class="radio-card-joyful flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-white">
                   <input type="radio" name="assess-bedtime" value="3" class="text-forest-800 focus:ring-forest-800">
                   <span>Occasionally with night filter or audio only</span>
                 </label>
-                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                <label class="radio-card-joyful flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-white">
                   <input type="radio" name="assess-bedtime" value="2" class="text-forest-800 focus:ring-forest-800" checked>
                   <span>Most nights (Scroll social media or watch videos)</span>
                 </label>
-                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                <label class="radio-card-joyful flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-white">
                   <input type="radio" name="assess-bedtime" value="1" class="text-forest-800 focus:ring-forest-800">
                   <span>Every night until I involuntarily fall asleep with device on</span>
                 </label>
@@ -403,19 +409,19 @@
                 When opening short-form videos (Reels, TikTok, Shorts), how difficult is it to stop after your intended time?
               </legend>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
-                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                <label class="radio-card-joyful flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-white">
                   <input type="radio" name="assess-scrolling" value="4" class="text-forest-800 focus:ring-forest-800">
                   <span>Easy (I do not use short-form algorithmic feeds)</span>
                 </label>
-                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                <label class="radio-card-joyful flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-white">
                   <input type="radio" name="assess-scrolling" value="3" class="text-forest-800 focus:ring-forest-800">
                   <span>Moderate (I notice and close after 10-15 minutes)</span>
                 </label>
-                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                <label class="radio-card-joyful flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-white">
                   <input type="radio" name="assess-scrolling" value="2" class="text-forest-800 focus:ring-forest-800" checked>
                   <span>Difficult (Intended for 5 mins, end up staying for 45+)</span>
                 </label>
-                <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-forest-400 bg-slate-50/50 cursor-pointer transition">
+                <label class="radio-card-joyful flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 bg-white">
                   <input type="radio" name="assess-scrolling" value="1" class="text-forest-800 focus:ring-forest-800">
                   <span>Extreme (Completely lose perception of time and deadlines)</span>
                 </label>
@@ -428,7 +434,7 @@
                 <i class="fa-solid fa-lock text-forest-700"></i>
                 <span>Private calculation. Calculated strictly in your browser.</span>
               </div>
-              <button type="submit" class="bg-forest-800 hover:bg-forest-900 text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-xs transition flex items-center gap-2">
+              <button type="submit" class="btn-duo-primary text-sm px-7 py-3.5 flex items-center gap-2 cursor-pointer shadow-sm">
                 <i class="fa-solid fa-chart-simple"></i>
                 <span>Generate Habit Reflection Report</span>
               </button>
@@ -1338,7 +1344,7 @@
 
             <div class="mt-6 pt-4 border-t border-slate-100">
               <div class="flex items-center justify-center gap-3 mb-4">
-                <button id="timer-start-pause-btn" class="bg-forest-800 hover:bg-forest-900 text-white font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-xl shadow-xs transition flex items-center gap-1.5">
+                <button id="timer-start-pause-btn" class="btn-duo-primary text-xs sm:text-sm px-6 py-3 flex items-center gap-1.5 cursor-pointer">
                   <i class="fa-solid fa-play mr-1.5"></i> Start Focus
                 </button>
                 <button id="timer-reset-btn" class="bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl transition">
@@ -1787,6 +1793,7 @@
   <script src="js/modules/feedback.js"></script>
   <script src="js/modules/methodology.js"></script>
   <script src="js/modules/heatmap.js"></script>
+  <script src="js/modules/duoCompanion.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

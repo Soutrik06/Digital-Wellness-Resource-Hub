@@ -145,7 +145,7 @@ function initMatcher() {
             if (tool.costType === 'paid') costBadge = 'badge-paid';
 
             return `
-              <div class="card-wellness p-5 flex flex-col justify-between">
+              <div class="card-wellness card-joyful-3d p-5 flex flex-col justify-between group">
                 <div>
                   <div class="flex items-start justify-between gap-2 mb-2">
                     <div>
